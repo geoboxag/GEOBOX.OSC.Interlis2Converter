@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Deterministic>false</Deterministic>
+    <BaseOutputPath>C:\_repos\GEOBOX.OSC.Interlis2Converter\_debug</BaseOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\DEV_SharedClasses\Version.cs" Link="Properties\Version.cs" />
+    <Compile Include="..\GEOBOX.OSC.Common\GEOBOX.OSC.Common\GEOBOX.OSC.Common\Logging\CustomerFriendlyLogger.cs" Link="Logging\CustomerFriendlyLogger.cs" />
+    <Compile Include="..\GEOBOX.OSC.Common\GEOBOX.OSC.Common\GEOBOX.OSC.Common\Logging\FileLogger.cs" Link="Logging\FileLogger.cs" />
+    <Compile Include="..\GEOBOX.OSC.Common\GEOBOX.OSC.Common\GEOBOX.OSC.Common\Logging\ILogger.cs" Link="Logging\ILogger.cs" />
+    <Compile Include="..\GEOBOX.OSC.Common\GEOBOX.OSC.Common\GEOBOX.OSC.Common\Logging\TraceLogger.cs" Link="Logging\TraceLogger.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

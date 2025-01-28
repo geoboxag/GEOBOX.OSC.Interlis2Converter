@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "GEOBOX.OSC.Interlis2Converter": {
+      "commandName": "Project",
+      "commandLineArgs": "--type mergeDMAVfix --inputDir \"C:\\_daten\\Interlis\"\r\n--outputFile \"C:\\_daten\\Interlis\\DMAV_alles.xtf\"\r\n--logFile \"C:\\_daten\\Interlis\\DMAV_alles.log\""
+    }
+  }
+}
