@@ -6,9 +6,27 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <Deterministic>false</Deterministic>
-    <BaseOutputPath>C:\_repos\GEOBOX.OSC.Interlis2Converter\_debug</BaseOutputPath>
+    <Platforms>x64</Platforms>
+    <Configurations>Debug;Release</Configurations>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <PackageOutputPath>$(OutputPath)</PackageOutputPath>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Deterministic>False</Deterministic>
+    <OutputPath>..\_debug\</OutputPath>
+    <DebugType>full</DebugType>
+    <NoWarn>1701;1702;CA1416</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Deterministic>False</Deterministic>
+    <OutputPath>..\output\</OutputPath>
+    <DebugType>none</DebugType>
+    <NoWarn>1701;1702;CA1416</NoWarn>
+  </PropertyGroup>
+
 
   <ItemGroup>
     <Compile Include="..\DEV_SharedClasses\Version.cs" Link="Properties\Version.cs" />

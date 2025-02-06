@@ -84,8 +84,12 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
             headerSection.Add(models);
 
             // Sender
-            XElement sender = new XElement(ili + "sender", "Test GEOBOX");
+            XElement sender = new XElement(ili + "sender", InfosHelper.Sender);
             headerSection.Add(sender);
+
+            // Comment
+            XElement comment = new XElement(ili + "comment", InfosHelper.Comment);
+            headerSection.Add(comment);
 
             return headerSection;
         }

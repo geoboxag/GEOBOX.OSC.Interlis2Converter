@@ -24,7 +24,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
         /// <summary>
         /// IController - Command Type name
         /// </summary>
-        public static string CommandType => TYPE;
+        public static string CommandType => TYPE; 
         /// <summary>
         /// IController - Name for display and looger
         /// </summary>
@@ -70,6 +70,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
 
             // 2. Read Namespaces, Models, Datasection from Interlis an Collect the data
             FileReader fileReader = new FileReader();
+            fileReader.SetModelAsXTFNamespace = true;
             foreach(string fileToRead in filesToRead)
             {
                 try
@@ -146,11 +147,11 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
             {
                 if (disposing)
                 {
-                    // TODO: dispose managed state (managed objects).
+                    // dispose managed state (managed objects).
                 }
 
-                // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
-                // TODO: set large fields to null.
+                // free unmanaged resources (unmanaged objects) and override a finalizer below.
+                // set large fields to null.
 
                 disposedValue = true;
             }
@@ -161,7 +162,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
         {
             // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
             Dispose(true);
-            // TODO: uncomment the following line if the finalizer is overridden above.
+            //  uncomment the following line if the finalizer is overridden above.
             GC.SuppressFinalize(this);
         }
         #endregion

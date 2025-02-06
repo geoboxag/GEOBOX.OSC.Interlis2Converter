@@ -19,6 +19,8 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
 
         internal DatasectionHelper DatasectionHelper { get; private set; }
 
+        internal bool SetModelAsXTFNamespace { get; set; } = false;
+
         /// <summary>
         /// Constructor init file reader
         /// </summary>
@@ -26,7 +28,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
         /// <exception cref="FileNotFoundException"></exception>
         internal FileReader() 
         {
-            InfosHelper = new InfosHelper("GEOBOX Interlis2 Konverter");
+            InfosHelper = new InfosHelper();
             ModelsHelper = new ModelsHelper();
             NamespaceHelper = new NamespaceHelper();
             DatasectionHelper = new DatasectionHelper();
@@ -78,6 +80,27 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
                     foreach (var model in models)
                     {
                         ModelsHelper.AddModel(model.Value);
+                        if (SetModelAsXTFNamespace)
+                        {
+                            NamespaceHelper.AddStandardXTFNamespace(model.Value);
+                        }
+                    }
+
+                    // Sender
+                    var senders = xDocument.Descendants(XName.Get("sender", "http://www.interlis.ch/xtf/2.4/INTERLIS"));
+                    foreach (var sender in senders)
+                    {
+                        if (String.IsNullOrEmpty(sender.Value)) continue;
+                        // First value will set (first wins)
+                        InfosHelper.SetSenderIsNotSet(sender.Value);
+                    }
+
+                    // Comment
+                    var comments = xDocument.Descendants(XName.Get("comment", "http://www.interlis.ch/xtf/2.4/INTERLIS"));
+                    foreach (var comment in comments)
+                    {
+                        if (String.IsNullOrEmpty(comment.Value)) continue;
+                        InfosHelper.AppendComment(comment.Value);
                     }
 
                     // Datasection

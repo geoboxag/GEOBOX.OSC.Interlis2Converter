@@ -39,6 +39,18 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
 
             Namespaces[nsAlias] = nsValue;
         }
+
+        /// <summary>
+        /// Add (model) name as Standard XML Namespace
+        /// namespace concated to "http://www.interlis.ch/xtf/2.4/[Model-Name]"
+        /// </summary>
+        /// <param name="modelName"></param>
+        internal void AddStandardXTFNamespace(string modelName)
+        {
+            if (Namespaces.ContainsKey((modelName))) return;
+
+            Namespaces[modelName] = $"http://www.interlis.ch/xtf/2.4/{modelName}";
+        }
         #endregion
     }
 }

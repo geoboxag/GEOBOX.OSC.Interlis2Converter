@@ -11,6 +11,10 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
     {
         #region Propertys and Attributs
         /// <summary>
+        /// Check is sender set
+        /// </summary>
+        private bool isSenderSet = false;
+        /// <summary>
         /// Sender for Headersections
         /// </summary>
         private string sender;
@@ -45,24 +49,30 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
         /// <summary>
         /// Constructor for FileReder
         /// </summary>
-        internal InfosHelper(string sender)
+        internal InfosHelper()
         {
-            SetSenderIsNotSet(sender);
         }
         #endregion
 
         #region Set Infos
         /// <summary>
         /// set the sender
-        /// the first sender will be set
+        /// first value will set (first wins)
         /// </summary>
         /// <param name="sender">sender text from XTF</param>
         internal void SetSenderIsNotSet(string senderText)
         {
+            if (isSenderSet) return;
             if (string.IsNullOrEmpty(senderText)) return;
+
+            isSenderSet = true;
             sender = senderText;
         }
 
+        /// <summary>
+        /// Append comment t
+        /// </summary>
+        /// <param name="commentToAppend"></param>
         internal void AppendComment(string commentToAppend)
         {
             if (string.IsNullOrEmpty(commentToAppend)) return;
@@ -73,7 +83,8 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
                 return;
             }
 
-            comment = comment + Environment.NewLine + commentToAppend;
+            // seperated by semicolon (not with Environment.NewLine)
+            comment = comment + "; " + commentToAppend;
         }
         #endregion
     }
