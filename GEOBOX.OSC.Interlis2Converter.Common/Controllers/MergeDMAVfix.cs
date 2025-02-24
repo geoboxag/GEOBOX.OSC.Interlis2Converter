@@ -103,15 +103,19 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
                 "DMAV_DauerndeBodenverschiebungen.xtf",
                 "DMAV_Dienstbarkeitsgrenzen.xtf",
                 "DMAV_Einzelobjekte.xtf",
-                "DMAV_FixpunkteAVKategorie2.xtf",
+                "KGK_PFDS2.xtf",
+                //"DMAV_FixpunkteAVKategorie2.xtf", removed from swisstopo in version 01.05.2025
                 "DMAV_FixpunkteAVKategorie3.xtf",
-                "DMAV_FixpunkteLV.xtf",
-                "DMAV_Gebäudeadressen.xtf",
-                "DMAV_Grundstücke.xtf",
+                "FixpunkteLV_LFP.xtf", "FixpunkteLV_HFP.xtf",
+                // "DMAV_FixpunkteLV.xtf", removed from swisstopo in version 01.05.2025
+                "DMAV_Gebäudeadressen.xtf", "DMAV_Gebaeudeadressen.xtf",
+                "DMAV_Grundstücke.xtf", "DMAV_Grundstuecke.xtf",
                 "DMAV_HoheitsgrenzenAV.xtf",
-                "DMAV_HoheitsgrenzenLV.xtf",
+                "HoheitsgrenzenLV.xtf",
+                //"DMAV_HoheitsgrenzenLV.xtf", removed from swisstopo in version 01.05.2025
                 "DMAV_Nomenklatur.xtf",
-                "DMAV_PLZ_Ortschaft.xtf",
+                "OrtschaftsverzeichnisPLZ.xtf",
+                //"DMAV_PLZ_Ortschaft.xtf", removed from swisstopo in version 01.05.2025
                 "DMAV_Rohrleitungen.xtf",
                 "DMAV_Toleranzstufen.xtf",
                 "DMAVSUP_UntereinheitGrundbuch.xtf"
