@@ -39,7 +39,7 @@ Es werden die Dateien anhand eines fixen Dateinamen im Verzeichnis gesucht, den 
 
 > HINWEIS: die Dateien werden nicht geprüft, ob es das korrekte Modell beinhaltet.
 
-Dateinamen: "DMAV_Bodenbedeckung.xtf", "DMAV_DauerndeBodenverschiebungen.xtf", "DMAV_Dienstbarkeitsgrenzen.xtf", "DMAV_Einzelobjekte.xtf", "DMAV_FixpunkteAVKategorie2.xtf", "DMAV_FixpunkteAVKategorie3.xtf", "DMAV_FixpunkteLV.xtf", "DMAV_Gebäudeadressen.xtf", "DMAV_Grundstücke.xtf", "DMAV_HoheitsgrenzenAV.xtf", "DMAV_HoheitsgrenzenLV.xtf", "DMAV_Nomenklatur.xtf", "DMAV_PLZ_Ortschaft.xtf", "DMAV_Rohrleitungen.xtf", "DMAV_Toleranzstufen.xtf", "DMAVSUP_UntereinheitGrundbuch.xtf" 
+Dateinamen: "DMAV_Bodenbedeckung.xtf", "DMAV_DauerndeBodenverschiebungen.xtf", "DMAV_Dienstbarkeitsgrenzen.xtf", "DMAV_Einzelobjekte.xtf", "KGK_PFDS2.xtf", "DMAV_FixpunkteAVKategorie3.xtf", "FixpunkteLV_LFP.xtf", "FixpunkteLV_HFP.xtf", "DMAV_Gebauudeadressen.xtf", "DMAV_Grundstuecke.xtf", "DMAV_HoheitsgrenzenAV.xtf", "HoheitsgrenzenLV.xtf", "DMAV_Nomenklatur.xtf", "OrtschaftsverzeichnisPLZ.xtf", "DMAV_Rohrleitungen.xtf", "DMAV_Toleranzstufen.xtf", "DMAVSUP_UntereinheitGrundbuch.xtf" 
 
 ## Voraussetzungen und Installation
 ### Voraussetzung
