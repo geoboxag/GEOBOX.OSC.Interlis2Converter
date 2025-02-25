@@ -1,6 +1,7 @@
 ﻿using GEOBOX.OSC.Common.Logging;
 using GEOBOX.OSC.Interlis2Converter.Common.Domain;
 using GEOBOX.OSC.Interlis2Converter.Common.Interlis24;
+using GEOBOX.OSC.Interlis2Converter.Common.IO;
 using GEOBOX.OSC.Interlis2Converter.Common.Properties;
 using System;
 using System.Collections.Generic;

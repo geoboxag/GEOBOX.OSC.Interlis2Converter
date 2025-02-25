@@ -284,5 +284,23 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Properties {
                 return ResourceManager.GetString("SenderName", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ZIP-Datei wurde nicht gefunden.
+        /// </summary>
+        internal static string ZipHelperFileNotFoundMessage {
+            get {
+                return ResourceManager.GetString("ZipHelperFileNotFoundMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Beim Entpacken wurde ist ein Problem aufgetreten: [{0}]..
+        /// </summary>
+        internal static string ZipHelperGeneralExceptionMessage {
+            get {
+                return ResourceManager.GetString("ZipHelperGeneralExceptionMessage", resourceCulture);
+            }
+        }
     }
 }

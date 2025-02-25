@@ -200,4 +200,11 @@
   <data name="SenderName" xml:space="preserve">
     <value>GEOBOX.Interlis2Konverter</value>
   </data>
+  <data name="ZipHelperFileNotFoundMessage" xml:space="preserve">
+    <value>ZIP-Datei wurde nicht gefunden</value>
+  </data>
+  <data name="ZipHelperGeneralExceptionMessage" xml:space="preserve">
+    <value>Beim Entpacken wurde ist ein Problem aufgetreten: [{0}].</value>
+    <comment>Message from exception.</comment>
+  </data>
 </root>
