@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Beispiel Datei für die Einstellungen des Downloades der XTF-Dateien von den Web-Services 
+-- Die Dateien werden im Output Verzeichnis mit dem Name "FileName" gespeichert.
+-- Nach dem Download der ZIP-Datei werden sämtliche XTF Dateien aus dem ZIP entpackt. Und die ZIP-Datei wieder gelöscht. -->
+<DownloadSettings>
+	<FileDownloadSettings>
+		<!-- Fixpunkte der Kategorie 1 - geo.admin.ch - Datensatz der swisstopo -->
+		<FileDownloadSetting>
+			<SourceURL>https://data.geo.admin.ch/ch.swisstopo.fixpunkte-lfp1/fixpunkte-lfp1/fixpunkte-lfp1_2056_5728.xtf.zip</SourceURL>
+			<FileName>FixpunkteLV_LFP.xtf</FileName>
+		</FileDownloadSetting>
+		<FileDownloadSetting>
+			<SourceURL>https://data.geo.admin.ch/ch.swisstopo.fixpunkte-hfp1/fixpunkte-hfp1/fixpunkte-hfp1_2056_5728.xtf.zip</SourceURL>
+			<FileName>FixpunkteLV_HFP.xtf</FileName>
+		</FileDownloadSetting>
+		<!-- Hoheitsgrenzen - geo.admin.ch - Datensatz der swisstopo -->
+		<FileDownloadSetting>
+			<SourceURL>https://data.geo.admin.ch/ch.swisstopo.hoheitsgrenze-landesvermessung/hoheitsgrenze-landesvermessung/hoheitsgrenze-landesvermessung_2056.xtf.zip</SourceURL>
+			<FileName>HoheitsgrenzenLV.xtf</FileName>
+		</FileDownloadSetting>
+		<!-- OrtschaftsverzeichnisPLZ - geo.admin.ch - Datensatz der swisstopo -->
+		<FileDownloadSetting>
+			<SourceURL>https://data.geo.admin.ch/ch.swisstopo-vd.ortschaftenverzeichnis_plz/ortschaftenverzeichnis_plz/ortschaftenverzeichnis_plz_2056.xtf.zip</SourceURL>
+			<FileName>OrtschaftsverzeichnisPLZ.xtf</FileName>
+		</FileDownloadSetting>
+		<!-- Fixpunkte Kategorie 2 - geodienste.ch - Kantonaler Datensatz -->
+		<FileDownloadSetting>
+			<SourceURL>https://www.geodienste.ch/downloads/interlis/fixpunkte/AG/fixpunkte_v1_1_AG_lv95.zip</SourceURL>
+			<FileName>KGK_PFDS2.xtf</FileName>
+		</FileDownloadSetting>
+	</FileDownloadSettings>
+</DownloadSettings>
