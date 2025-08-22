@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -100,7 +95,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
                     foreach (var comment in comments)
                     {
                         if (String.IsNullOrEmpty(comment.Value)) continue;
-                        InfosHelper.AppendComment(comment.Value);
+                            InfosHelper.AppendComment(comment.Value);
                     }
 
                     // Datasection

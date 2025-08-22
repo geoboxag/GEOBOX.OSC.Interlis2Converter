@@ -16,23 +16,21 @@
     <Deterministic>False</Deterministic>
     <OutputPath>..\_debug\</OutputPath>
     <DebugType>full</DebugType>
-    <NoWarn>1701;1702;CA1416</NoWarn>
+    <NoWarn>1701;1702;CA1416;IDE0017;IDE0018;IDE0044;IDE0090;IDE0290;</NoWarn>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Deterministic>False</Deterministic>
     <OutputPath>..\output\</OutputPath>
     <DebugType>none</DebugType>
-    <NoWarn>1701;1702;CA1416</NoWarn>
+    <NoWarn>1701;1702;CA1416;IDE0017;IDE0018;IDE0044;IDE0090;IDE0290;</NoWarn>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
 
 
   <ItemGroup>
     <Compile Include="..\DEV_SharedClasses\Version.cs" Link="Properties\Version.cs" />
-    <Compile Include="..\GEOBOX.OSC.Common\GEOBOX.OSC.Common\GEOBOX.OSC.Common\Logging\CustomerFriendlyLogger.cs" Link="Logging\CustomerFriendlyLogger.cs" />
-    <Compile Include="..\GEOBOX.OSC.Common\GEOBOX.OSC.Common\GEOBOX.OSC.Common\Logging\FileLogger.cs" Link="Logging\FileLogger.cs" />
-    <Compile Include="..\GEOBOX.OSC.Common\GEOBOX.OSC.Common\GEOBOX.OSC.Common\Logging\ILogger.cs" Link="Logging\ILogger.cs" />
-    <Compile Include="..\GEOBOX.OSC.Common\GEOBOX.OSC.Common\GEOBOX.OSC.Common\Logging\TraceLogger.cs" Link="Logging\TraceLogger.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,7 +40,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
   </ItemGroup>
-
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -18,14 +18,16 @@
     <Deterministic>False</Deterministic>
     <OutputPath>..\_debug\</OutputPath>
     <DebugType>full</DebugType>
-    <NoWarn>1701;1702;CA1416</NoWarn>
+    <NoWarn>1701;1702;CA1416;IDE0017;IDE0018;IDE0044;IDE0090;</NoWarn>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Deterministic>False</Deterministic>
     <OutputPath>..\output\</OutputPath>
     <DebugType>none</DebugType>
-    <NoWarn>1701;1702;CA1416</NoWarn>
+    <NoWarn>1701;1702;CA1416;IDE0017;IDE0018;IDE0044;IDE0090;</NoWarn>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
 
 

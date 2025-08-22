@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using System.Xml.Linq;
+﻿using System.Xml.Linq;
 
 namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
 {
@@ -87,9 +81,10 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
             XElement sender = new XElement(ili + "sender", InfosHelper.Sender);
             headerSection.Add(sender);
 
-            // Comment
+            // Comment (add only if there are any)
             XElement comment = new XElement(ili + "comment", InfosHelper.Comment);
-            headerSection.Add(comment);
+            if(comment.HasElements)
+                headerSection.Add(comment);
 
             return headerSection;
         }

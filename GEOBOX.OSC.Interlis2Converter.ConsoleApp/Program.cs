@@ -1,11 +1,11 @@
 ﻿using CommandLine;
 using GEOBOX.OSC.Common.Logging;
 using GEOBOX.OSC.Interlis2Converter.Common.Controllers;
-using GEOBOX.OSC.Interlis2Converter.Common.Domain;
+using GEOBOX.OSC.Interlis2Converter.Common.Settings;
 using GEOBOX.OSC.Interlis2Converter.ConsoleApp.Batch;
 using GEOBOX.OSC.Interlis2Converter.ConsoleApp.Properties;
 
-namespace GEOBOX.OSC.Interlis2Converter
+namespace GEOBOX.OSC.Interlis2Converter.ConsoleApp
 {
     /// <summary>
     /// Programm (Main for Console)
@@ -45,7 +45,7 @@ namespace GEOBOX.OSC.Interlis2Converter
 
             ILogger logger = new CustomerFriendlyLogger(FileLogger.Create(logFilePath), true);
             ((CustomerFriendlyLogger)logger).WriteHeader(Resources.genModulName, Resources.loggerComment);
-            
+
             // Check is type available
             if (!availableControllers.ContainsKey(commandLineOptions.Type))
             {
@@ -58,21 +58,28 @@ namespace GEOBOX.OSC.Interlis2Converter
 
             try
             {
-                // Create and set values to runtime settings
+                // Create and set values to runtime settings given vaalues (not empty) get checked
                 var runtimeSettings = new RuntimeSettings();
                 runtimeSettings.SetType(commandLineOptions.Type);
                 runtimeSettings.SetInputPath(commandLineOptions.InputDir);
+                runtimeSettings.SetOutputDir(commandLineOptions.OutputDir);
                 runtimeSettings.SetOutput(commandLineOptions.OutputFile, true);
+                runtimeSettings.SetAndReadDownloadConfigFile(commandLineOptions.DownloadConfig);
                 runtimeSettings.SetLogFile(commandLineOptions.LogFile, true);
 
                 using (IController controller = (IController)Activator.CreateInstance(availableControllers[commandLineOptions.Type], new object[] { runtimeSettings, logger }))
                 {
-                    logger?.WriteInformation(String.Format(Resources.MessageStartFunction, controller.DisplayName));
-
+                    logger?.WriteInformation(string.Format(Resources.MessageStartFunction, controller.DisplayName));
+                    //Check if needed arguments are present in the commandline
+                    if (!controller.CheckCommandlineOptions())
+                    {
+                        exitCode = ExitCode.Error;
+                        return;
+                    }
                     if (controller.Execute())
                     {
                         // Success
-                        var message = String.Format(Resources.MessageEndFunctionSuccess, controller.DisplayName);
+                        var message = string.Format(Resources.MessageEndFunctionSuccess, controller.DisplayName);
                         logger?.WriteInformation(message);
                         Console.WriteLine(message);
                         exitCode = ExitCode.Success;
@@ -80,7 +87,7 @@ namespace GEOBOX.OSC.Interlis2Converter
                     else
                     {
                         // Error
-                        var message = String.Format(Resources.MessageEndFunctionError, controller.DisplayName);
+                        var message = string.Format(Resources.MessageEndFunctionError, controller.DisplayName);
                         logger?.WriteError(message);
                         Console.WriteLine(message);
                         exitCode = ExitCode.Error;
@@ -107,7 +114,7 @@ namespace GEOBOX.OSC.Interlis2Converter
         /// Run Error Case
         /// </summary>
         /// <param name="errors"></param>
-        static void HandleParseError(IEnumerable<CommandLine.Error> errors)
+        static void HandleParseError(IEnumerable<Error> errors)
         {
             Console.WriteLine(Resources.CMDCallWithError);
             exitCode = ExitCode.Error;

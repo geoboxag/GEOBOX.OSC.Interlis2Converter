@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
+﻿namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
 {
     /// <summary>
     /// All Controllers for Help and Execution
@@ -17,9 +11,11 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
         /// <returns></returns>
         public static Dictionary<string /*Key: FunctionType*/, Type /*Value: Controller-Class-Type*/> Get()
         {
-            var availableControllers = new Dictionary<string, Type>();
-
-            availableControllers.Add(MergeDMAVfix.CommandType, typeof(MergeDMAVfix));
+            var availableControllers = new Dictionary<string, Type>
+            {
+                { MergeDMAVfix.CommandType, typeof(MergeDMAVfix) },
+                { ServiceDownload.CommandType, typeof(ServiceDownload) },
+            };
 
             return availableControllers;
         }

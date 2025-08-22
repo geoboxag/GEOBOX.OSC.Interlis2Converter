@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GEOBOX.OSC.Interlis2Converter.Common.IO
+﻿namespace GEOBOX.OSC.Interlis2Converter.Common.IO
 {
     /// <summary>
     /// Downloads file from url
@@ -49,7 +43,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.IO
 
                 using var contentStream = await response.Content.ReadAsStreamAsync();
 
-                using var fileStream = new FileStream(outputPath, FileMode.Create, FileAccess.Write, FileShare.None);
+                using var fileStream = new FileStream(outputPath , FileMode.Create, FileAccess.Write, FileShare.None);
 
                 while (true)
                 {

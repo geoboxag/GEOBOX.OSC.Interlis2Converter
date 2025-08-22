@@ -121,6 +121,10 @@
     <value>Verzeichnis '{0}' wurde nicht gefunden.</value>
     <comment>{0} Folderpath</comment>
   </data>
+  <data name="FileNotFoundExceptionMessage" xml:space="preserve">
+    <value>Datei '{0}' wurde nicht gefunden.</value>
+    <comment>{0} Folderpath</comment>
+  </data>
   <data name="genModulName" xml:space="preserve">
     <value>GEOBOX Interlis 2 Konverter</value>
   </data>
@@ -203,8 +207,57 @@
   <data name="ZipHelperFileNotFoundMessage" xml:space="preserve">
     <value>ZIP-Datei wurde nicht gefunden</value>
   </data>
-  <data name="ZipHelperGeneralExceptionMessage" xml:space="preserve">
+  <data name="ZipGeneralExceptionMessage" xml:space="preserve">
     <value>Beim Entpacken wurde ist ein Problem aufgetreten: [{0}].</value>
     <comment>Message from exception.</comment>
+  </data>
+  <data name="ServiceDownloadDisplayName" xml:space="preserve">
+    <value>{0}: Lädt die Datei von einem Webdienst herunter und speichert die Datei zur Weiterverwendung</value>
+    <comment>{0} CommandType</comment>
+  </data>
+  <data name="DMAVMergeMissingCMDOptionsMessage" xml:space="preserve">
+    <value>Nicht alle notwendigen Attribute sind in der Befehlszeile angegeben, outputDir, OutputFile und InputPath müssen vorhanden sein</value>
+  </data>
+  <data name="DownloadMissingCMDOptionsMessage" xml:space="preserve">
+    <value>Nicht alle notwendigen Attribute sind in der Befehlszeile angegeben, outputDir und configFile müssen vorhanden sein</value>
+  </data>
+  <data name="OutputPathNotFoundMessage" xml:space="preserve">
+    <value>Ausgabepfad wurde nicht gefunden</value>
+  </data>
+  <data name="DownloadSucessMessage" xml:space="preserve">
+    <value>Datei erfolgreich heruntergeladen in Pfad {0}</value>
+    <comment>{0} Download location</comment>
+  </data>
+  <data name="DownloadFailedMessage" xml:space="preserve">
+    <value>Download fehlgeschlagen: {0}</value>
+    <comment>{0} exeption message</comment>
+  </data>
+  <data name="DownloadProgressMessage" xml:space="preserve">
+    <value>Download Fortschritt: {0}%</value>
+    <comment>{0} Fortschritt %</comment>
+  </data>
+  <data name="GeneralExceptionMessage" xml:space="preserve">
+    <value>Es ist eine Problem aufgetretten: [{0}]</value>
+  </data>
+  <data name="ZipFileExistsWasDeletedMessage" xml:space="preserve">
+    <value>Die ZIP-Datei '{0}' ist vorhanden, diese wurde gelöscht.</value>
+  </data>
+  <data name="ZipFileDeletedErrorMessage" xml:space="preserve">
+    <value>ZIP-Datei konnte nicht gelöscht werden: [{0}]</value>
+  </data>
+  <data name="DownloadFileStartMessage" xml:space="preserve">
+    <value>Datei [{0}] wird von der entsprechenden URL heruntergeladen.</value>
+  </data>
+  <data name="ZipFileDeleteMessage" xml:space="preserve">
+    <value>Die ZIP-Datei '{0}' wurde wieder gelöscht.</value>
+  </data>
+  <data name="ZipExtractSuccesMessage" xml:space="preserve">
+    <value>Datei '{0}' wurde erfolgreich aus der ZIP-Datei '{1}' extrahiert.</value>
+  </data>
+  <data name="ZipExtractCountNullCountMessage" xml:space="preserve">
+    <value>Es konnten keine XTF-Dateien aus der ZIP-Datei '{0}' extrahiert werden.</value>
+  </data>
+  <data name="ZipExtractCountSuccesMessage" xml:space="preserve">
+    <value>Es wurden {1} XTF-Dateien aus der ZIP-Datei '{0}' extrahiert.</value>
   </data>
 </root>

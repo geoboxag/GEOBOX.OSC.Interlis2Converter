@@ -70,6 +70,78 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nicht alle notwendigen Attribute sind in der Befehlszeile angegeben, outputDir, OutputFile und InputPath müssen vorhanden sein.
+        /// </summary>
+        internal static string DMAVMergeMissingCMDOptionsMessage {
+            get {
+                return ResourceManager.GetString("DMAVMergeMissingCMDOptionsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download fehlgeschlagen: {0}.
+        /// </summary>
+        internal static string DownloadFailedMessage {
+            get {
+                return ResourceManager.GetString("DownloadFailedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datei [{0}] wird von der entsprechenden URL heruntergeladen..
+        /// </summary>
+        internal static string DownloadFileStartMessage {
+            get {
+                return ResourceManager.GetString("DownloadFileStartMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nicht alle notwendigen Attribute sind in der Befehlszeile angegeben, outputDir und configFile müssen vorhanden sein.
+        /// </summary>
+        internal static string DownloadMissingCMDOptionsMessage {
+            get {
+                return ResourceManager.GetString("DownloadMissingCMDOptionsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download Fortschritt: {0}%.
+        /// </summary>
+        internal static string DownloadProgressMessage {
+            get {
+                return ResourceManager.GetString("DownloadProgressMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datei erfolgreich heruntergeladen in Pfad {0}.
+        /// </summary>
+        internal static string DownloadSucessMessage {
+            get {
+                return ResourceManager.GetString("DownloadSucessMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datei &apos;{0}&apos; wurde nicht gefunden..
+        /// </summary>
+        internal static string FileNotFoundExceptionMessage {
+            get {
+                return ResourceManager.GetString("FileNotFoundExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Es ist eine Problem aufgetretten: [{0}].
+        /// </summary>
+        internal static string GeneralExceptionMessage {
+            get {
+                return ResourceManager.GetString("GeneralExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GEOBOX Interlis 2 Konverter.
         /// </summary>
         internal static string genModulName {
@@ -241,6 +313,15 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ausgabepfad wurde nicht gefunden.
+        /// </summary>
+        internal static string OutputPathNotFoundMessage {
+            get {
+                return ResourceManager.GetString("OutputPathNotFoundMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ziel-Datei ist vorhanden, kann diese Überscchrieben werden?.
         /// </summary>
         internal static string OverwriteMeassgeOutputFile {
@@ -286,20 +367,83 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ZIP-Datei wurde nicht gefunden.
+        ///   Looks up a localized string similar to {0}: Lädt die Datei von einem Webdienst herunter und speichert die Datei zur Weiterverwendung.
         /// </summary>
-        internal static string ZipHelperFileNotFoundMessage {
+        internal static string ServiceDownloadDisplayName {
             get {
-                return ResourceManager.GetString("ZipHelperFileNotFoundMessage", resourceCulture);
+                return ResourceManager.GetString("ServiceDownloadDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Es konnten keine XTF-Dateien aus der ZIP-Datei &apos;{0}&apos; extrahiert werden..
+        /// </summary>
+        internal static string ZipExtractCountNullCountMessage {
+            get {
+                return ResourceManager.GetString("ZipExtractCountNullCountMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Es wurden {1} XTF-Dateien aus der ZIP-Datei &apos;{0}&apos; extrahiert..
+        /// </summary>
+        internal static string ZipExtractCountSuccesMessage {
+            get {
+                return ResourceManager.GetString("ZipExtractCountSuccesMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datei &apos;{0}&apos; wurde erfolgreich aus der ZIP-Datei &apos;{1}&apos; extrahiert..
+        /// </summary>
+        internal static string ZipExtractSuccesMessage {
+            get {
+                return ResourceManager.GetString("ZipExtractSuccesMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ZIP-Datei konnte nicht gelöscht werden: [{0}].
+        /// </summary>
+        internal static string ZipFileDeletedErrorMessage {
+            get {
+                return ResourceManager.GetString("ZipFileDeletedErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Die ZIP-Datei &apos;{0}&apos; wurde wieder gelöscht..
+        /// </summary>
+        internal static string ZipFileDeleteMessage {
+            get {
+                return ResourceManager.GetString("ZipFileDeleteMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Die ZIP-Datei &apos;{0}&apos; ist vorhanden, diese wurde gelöscht..
+        /// </summary>
+        internal static string ZipFileExistsWasDeletedMessage {
+            get {
+                return ResourceManager.GetString("ZipFileExistsWasDeletedMessage", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Beim Entpacken wurde ist ein Problem aufgetreten: [{0}]..
         /// </summary>
-        internal static string ZipHelperGeneralExceptionMessage {
+        internal static string ZipGeneralExceptionMessage {
             get {
-                return ResourceManager.GetString("ZipHelperGeneralExceptionMessage", resourceCulture);
+                return ResourceManager.GetString("ZipGeneralExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ZIP-Datei wurde nicht gefunden.
+        /// </summary>
+        internal static string ZipHelperFileNotFoundMessage {
+            get {
+                return ResourceManager.GetString("ZipHelperFileNotFoundMessage", resourceCulture);
             }
         }
     }

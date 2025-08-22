@@ -1,14 +1,8 @@
 ﻿using GEOBOX.OSC.Common.Logging;
-using GEOBOX.OSC.Interlis2Converter.Common.Domain;
 using GEOBOX.OSC.Interlis2Converter.Common.Interlis24;
-using GEOBOX.OSC.Interlis2Converter.Common.IO;
 using GEOBOX.OSC.Interlis2Converter.Common.Properties;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using GEOBOX.OSC.Interlis2Converter.Common.Settings;
+using System.Diagnostics.CodeAnalysis;
 
 namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
 {
@@ -86,11 +80,20 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
 
             // 3. Write new XTF
             FileWriter fileWriter = new FileWriter(fileReader.InfosHelper, fileReader.ModelsHelper, fileReader.NamespaceHelper, fileReader.DatasectionHelper);
-            fileWriter.WriteXTF(runtimeSettings.OutputFile);
+            fileWriter.WriteXTF(Path.Combine(runtimeSettings.OutputDir, runtimeSettings.OutputFile));
 
             return true;
         }
         #endregion
+        public bool CheckCommandlineOptions()
+        {
+            if (string.IsNullOrEmpty(runtimeSettings.InputPath)|| string.IsNullOrEmpty(runtimeSettings.OutputFile)|| string.IsNullOrEmpty(runtimeSettings.OutputDir))
+            {
+                Console.WriteLine(Resources.DMAVMergeMissingCMDOptionsMessage);
+                return false;
+            }
+            return true;
+        }
 
         #region Create and Get Files for Read
         /// <summary>

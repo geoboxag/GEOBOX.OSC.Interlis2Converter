@@ -1,12 +1,9 @@
 ﻿using GEOBOX.OSC.Common.Logging;
+using GEOBOX.OSC.Interlis2Converter.Common.DAL.XML;
 using GEOBOX.OSC.Interlis2Converter.Common.Properties;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Xml.Serialization;
 
-namespace GEOBOX.OSC.Interlis2Converter.Common.Domain
+namespace GEOBOX.OSC.Interlis2Converter.Common.Settings
 {
     /// <summary>
     /// Run Data object for console and ui
@@ -14,7 +11,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Domain
     public class RuntimeSettings
     {
         /// <summary>
-        /// All Datas are ready for run
+        /// All data is ready for run
         /// </summary>
         private bool isInitOk = false;
 
@@ -24,17 +21,31 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Domain
         public string Type { get; private set; }
 
         /// <summary>
-        /// Input Path with all Files for Convert
+        /// Input path with all files for convert
         /// </summary>
         public string InputPath { get; private set; }
 
         /// <summary>
-        /// Output Path with Filename
+        /// Output filename with extension
         /// </summary>
         public string OutputFile { get; private set; }
 
         /// <summary>
-        /// Output File can be overwriten without user confirmation 
+        /// Output directory path
+        /// </summary>
+        public string OutputDir { get; private set; }
+
+        /// <summary>
+        /// Path to download config file
+        /// </summary>
+        public string DownloadConfigFilePath { get; private set; }
+        /// <summary>
+        /// Settings for Download from services
+        /// </summary>
+        public DownloadSettings DownloadSettings { get; private set; }
+
+        /// <summary>
+        /// Output file can be overwriten without user confirmation 
         /// </summary>
         public bool OutputOverwrite { get; private set; }
 
@@ -44,7 +55,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Domain
         public string LogFile { get; private set; }
 
         /// <summary>
-        /// Log File can be overwriten without user confirmation 
+        /// Log file can be overwriten without user confirmation 
         /// </summary>
         public bool LogFileOverwrite { get; private set; }
 
@@ -76,17 +87,64 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Domain
         /// <exception cref="DirectoryNotFoundException"></exception>
         public void SetInputPath(string inputPath)
         {
-            if (string.IsNullOrEmpty(inputPath))
+            if (!string.IsNullOrEmpty(inputPath) && !Directory.Exists(inputPath))
             {
-                throw new ArgumentNullException("inputpath");
-            }
-            if (!Directory.Exists(inputPath))
-            {
-                throw new DirectoryNotFoundException(String.Format(Resources.DirectoryNotFoundExceptionMessage, inputPath));
+                throw new DirectoryNotFoundException(string.Format(Resources.DirectoryNotFoundExceptionMessage, inputPath));
             }
 
             InputPath = inputPath;
         }
+
+        /// <summary>
+        /// Set Output Directory
+        /// </summary>
+        /// <param name="outputDir"></param>
+        /// <exception cref="DirectoryNotFoundException"></exception>
+        public void SetOutputDir(string outputDir)
+        {
+            if (!Directory.Exists(outputDir))
+            {
+                throw new DirectoryNotFoundException(string.Format(Resources.DirectoryNotFoundExceptionMessage, outputDir));
+            }
+            OutputDir = outputDir;
+        }
+
+        #region Download Config
+        /// <summary>
+        /// Set the Download Config file and read it
+        /// </summary>
+        /// <param name="downloadConfigFilePath"></param>
+        /// <exception cref="FileNotFoundException"></exception>
+        public void SetAndReadDownloadConfigFile(string downloadConfigFilePath)
+        {
+            if (!string.IsNullOrEmpty(downloadConfigFilePath))
+            {
+                if (!File.Exists(downloadConfigFilePath))
+                {
+                    throw new FileNotFoundException(string.Format(Resources.FileNotFoundExceptionMessage, downloadConfigFilePath));
+                }
+                else
+                {
+                    try
+                    {
+                        DownloadConfigFilePath = downloadConfigFilePath;
+                        // read settings
+                        XmlSerializer serializer = new(typeof(DownloadSettings));
+                        using (FileStream fileStream = new(downloadConfigFilePath, FileMode.Open))
+                        {
+                            // Deserialize XML to ApplicationSettings object
+                            DownloadSettings = (DownloadSettings)serializer.Deserialize(fileStream);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(Resources.GeneralExceptionMessage, ex.Message);
+                        isInitOk = false;
+                    }
+                }
+            }
+        }
+        #endregion
 
         /// <summary>
         /// Set and check output file
@@ -98,29 +156,25 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Domain
         /// <exception cref="DirectoryNotFoundException"></exception>
         public void SetOutput(string outputFile, bool canOverwrite)
         {
-            if (string.IsNullOrEmpty(outputFile))
+            if (!string.IsNullOrEmpty(outputFile))
             {
-                throw new ArgumentNullException("outputfile");
-            }
-            if (CheckIsFileReadOnly(outputFile))
-            {
-                throw new Exception(Resources.OutputFileReadOnlyMessage);
-            }
+                //throw new ArgumentNullException("outputfile");
 
-            if (!File.Exists(outputFile))
-            {
-                OutputOverwrite = true;
-            }
-            else
-            {
-                OutputOverwrite = canOverwrite;
-            }
+                if (CheckIsFileReadOnly(outputFile))
+                {
+                    throw new Exception(Resources.OutputFileReadOnlyMessage);
+                }
 
-            if (!Directory.Exists(Path.GetDirectoryName(outputFile)))
-            {
-                throw new DirectoryNotFoundException(String.Format(Resources.DirectoryNotFoundExceptionMessage, Path.GetDirectoryName(outputFile)));
-            }
+                if (!File.Exists(Path.Combine(OutputDir, outputFile)))
+                {
+                    OutputOverwrite = true;
+                }
+                else
+                {
+                    OutputOverwrite = canOverwrite;
+                }
 
+            }
             OutputFile = outputFile;
         }
 
@@ -134,30 +188,29 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Domain
         /// <exception cref="DirectoryNotFoundException"></exception>
         public void SetLogFile(string logFile, bool canOverwrite)
         {
-            if (string.IsNullOrEmpty(logFile))
+            if (!string.IsNullOrEmpty(logFile))
             {
-                throw new ArgumentNullException("logFile");
-            }
-            if (CheckIsFileReadOnly(logFile))
-            {
-                throw new Exception(Resources.LogFileReadOnlyMessage);
-            }
 
-            if (!File.Exists(logFile))
-            {
-                LogFileOverwrite = true;
-            }
-            else
-            {
-                LogFileOverwrite = canOverwrite;
-            }
+                if (CheckIsFileReadOnly(logFile))
+                {
+                    throw new Exception(Resources.LogFileReadOnlyMessage);
+                }
 
-            if (!Directory.Exists(Path.GetDirectoryName(logFile)))
-            {
-                throw new DirectoryNotFoundException(String.Format(Resources.DirectoryNotFoundExceptionMessage, Path.GetDirectoryName(logFile)));
-            }
+                if (!File.Exists(logFile))
+                {
+                    LogFileOverwrite = true;
+                }
+                else
+                {
+                    LogFileOverwrite = canOverwrite;
+                }
 
-            LogFile = logFile;
+                if (!Directory.Exists(Path.GetDirectoryName(logFile)))
+                {
+                    throw new DirectoryNotFoundException(string.Format(Resources.DirectoryNotFoundExceptionMessage, Path.GetDirectoryName(logFile)));
+                }
+                LogFile = logFile;
+            }
         }
 
         /// <summary>
@@ -221,8 +274,13 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Domain
                 logger?.WriteWarning($"{nameof(LogFile)} enthält keine Angabe.");
                 return isInitOk;
             }
-            
-            isInitOk = true;
+            if (!string.IsNullOrEmpty(DownloadConfigFilePath) && DownloadSettings == null)
+            {
+                isInitOk = false;
+                logger?.WriteWarning($"{nameof(DownloadConfigFilePath)} ist ungültig. Datei konnte nicht gelesen werden.");
+                return isInitOk;
+            }
+
             return isInitOk;
         }
 

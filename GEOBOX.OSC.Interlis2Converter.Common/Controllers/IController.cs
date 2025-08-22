@@ -26,6 +26,8 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
         /// <returns>true is runnig without errors</returns>
         bool Execute();
 
+        bool CheckCommandlineOptions();
+
         /// <summary>
         /// Logger with all Messages from execute
         /// </summary>
