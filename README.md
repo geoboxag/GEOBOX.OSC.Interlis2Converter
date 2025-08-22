@@ -46,7 +46,7 @@ Dateinamen: "DMAV_Bodenbedeckung.xtf", "DMAV_DauerndeBodenverschiebungen.xtf", "
 
 ### Typ "serviceDownload"
 #### Beispielaufruf
-```--type serviceDownload --outputDir "C:\Interlis" --downloadConfig "C:\Interlis\OSCConfig\ServiceDownloadConfig.xml" --logFile "C:\Interlis\ServiceDownload.log""```
+```--type serviceDownload --outputDir "C:\Interlis" --downloadConfig "C:\Interlis\OSCConfig\ServiceDownloadConfig.xml" --logFile "C:\Interlis\ServiceDownload.log"```
 ### Beschrieb
 Es werden die Daten von der Angegeben URL heruntergeladen und mit dem gewünschten Name in das Verzeichnis (outputDir) gespeichert.
 In der Regel wird eine ZIP-Datei heruntergeladen, sämtliche XTF-Dateien die sich in der ZIP-Datei befinden werden extrahiert. Wenn mehr als eine XTF Dateie gefunden wird, werden die weiteren Dateien mit einem Zeitstempel zu beginn des Dateinamens gekennzeichnet. 
@@ -54,18 +54,26 @@ In der Regel wird eine ZIP-Datei heruntergeladen, sämtliche XTF-Dateien die sic
 > HINWEIS: die Dateien werden nicht geprüft, ob es das korrekte Modell beinhaltet und werden ohne Rückfragen überschrieben, fals die Datei schon existiert.
 
 ### XML Konfiguration
-```<!-- Pro Download URL oder XTF-Datei ist ein Eintrag zu erstellen. -->
-		<FileDownloadSetting>
-			<SourceURL>URL zum Donwload inkl. Datei die Herunterzuladen ist.</SourceURL>
-			<FileName>Gewünschter (XTF) Dateiname nach dem Download und aus Extrahieren.</FileName>
-		</FileDownloadSetting>```
+Pro Download URL oder XTF-Datei ist ein Eintrag zu erstellen.
+XML-Tag | Beschrieb
+--- | ---
+SourceURL | URL zur Datei (in der Regel ZIP-Datei) für den Donwload.
+FileName | Name der Datei nach dem Download und Extrahieren aus der ZIP-Datei
+```
+<FileDownloadSetting>
+	<SourceURL>[URL inkl. Datei] zum Donwload inkl. Datei die Herunterzuladen ist.</SourceURL>
+	<FileName>[XTF-Dateiname]</FileName>
+</FileDownloadSetting>
+```
 
 Beispiel für die Fixpunkte der Kategorie 1 (weitere Beispiele sind in der Sample-Datei aufgeführt):
-```<!-- Fixpunkte der Kategorie 1 - geo.admin.ch - Datensatz der swisstopo -->
-		<FileDownloadSetting>
-			<SourceURL>https://data.geo.admin.ch/ch.swisstopo.fixpunkte-lfp1/fixpunkte-lfp1/fixpunkte-lfp1_2056_5728.xtf.zip</SourceURL>
-			<FileName>FixpunkteLV_LFP.xtf</FileName>
-		</FileDownloadSetting>```
+```
+<!-- Fixpunkte der Kategorie 1 - geo.admin.ch - Datensatz der swisstopo -->
+<FileDownloadSetting>
+	<SourceURL>https://data.geo.admin.ch/ch.swisstopo.fixpunkte-lfp1/fixpunkte-lfp1/fixpunkte-lfp1_2056_5728.xtf.zip</SourceURL>
+	<FileName>FixpunkteLV_LFP.xtf</FileName>
+</FileDownloadSetting>
+```
 
 ## Voraussetzungen und Installation
 ### Voraussetzung
