@@ -5,7 +5,7 @@ using System.Text;
 namespace GEOBOX.OSC.Common.Logging
 {
     /// <summary>
-    /// File-Logger, write Log-Messages in Text-File.
+    /// File-Logger, writes Log-Messages in Text-File.
     /// </summary>
     public sealed class FileLogger : ILogger
     {
@@ -42,7 +42,7 @@ namespace GEOBOX.OSC.Common.Logging
         /// Creates and initiliazes a new FileLogger.
         /// </summary>
         /// <param name="fullFilename">Name of the full log file.</param>
-        /// <param name="append">True; if we should write a the end of an existing file.</param>
+        /// <param name="append">True; if we should append to the end of an existing file.</param>
         /// <returns></returns>
         public static ILogger Create(string fullFilename, bool append = true)
         {

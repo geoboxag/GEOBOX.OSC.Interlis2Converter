@@ -133,7 +133,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Es ist eine Problem aufgetretten: [{0}].
+        ///   Looks up a localized string similar to Es ist ein Problem aufgetretten: [{0}].
         /// </summary>
         internal static string GeneralExceptionMessage {
             get {
@@ -250,7 +250,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Starte die Zusammenführung der Datein.
+        ///   Looks up a localized string similar to Starte die Zusammenführung der Dateien.
         /// </summary>
         internal static string loggerStartMerging {
             get {
@@ -322,7 +322,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ziel-Datei ist vorhanden, kann diese Überscchrieben werden?.
+        ///   Looks up a localized string similar to Ziel-Datei ist vorhanden, kann diese Überschrieben werden?.
         /// </summary>
         internal static string OverwriteMeassgeOutputFile {
             get {
@@ -331,7 +331,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ziel-Datei und Protokoll-Datei sind vorhanden, können diese Überscchrieben werden?.
+        ///   Looks up a localized string similar to Ziel-Datei und Protokoll-Datei sind vorhanden, können diese Überschrieben werden?.
         /// </summary>
         internal static string OverwriteMessageAllFiles {
             get {
@@ -340,7 +340,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Protokoll-Datei ist vorhanden, kann diese Überscchrieben werden?.
+        ///   Looks up a localized string similar to Protokoll-Datei ist vorhanden, kann diese Überschrieben werden?.
         /// </summary>
         internal static string OverwriteMessageLogFile {
             get {
@@ -430,7 +430,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Beim Entpacken wurde ist ein Problem aufgetreten: [{0}]..
+        ///   Looks up a localized string similar to Beim Entpacken ist ein Problem aufgetreten: [{0}]..
         /// </summary>
         internal static string ZipGeneralExceptionMessage {
             get {

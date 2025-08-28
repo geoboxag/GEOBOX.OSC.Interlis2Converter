@@ -30,7 +30,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
         }
 
         /// <summary>
-        /// Read XTF File and collect infos for write
+        /// Read XTF File and collect infos for writing
         /// </summary>
         /// <param name="xtfFileToRead">Path to file and file name with extension e.g. C:\Temp\AVBB.xtf</param>
         /// <exception cref="ArgumentNullException"></exception>
@@ -100,7 +100,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
 
                     // Datasection
                     var datasection = xDocument.Descendants(XName.Get("datasection", "http://www.interlis.ch/xtf/2.4/INTERLIS")).Where(node => !String.IsNullOrEmpty(node.Value));
-                    //"Remove" top Node "datasection"
+                    // "Remove" top Node "datasection"
                     //var decendantAsNodes = datasection.First().Nodes();
                     foreach(XElement dataSectionNode in datasection.Elements())
                     {

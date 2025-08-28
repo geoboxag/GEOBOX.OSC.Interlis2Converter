@@ -11,7 +11,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Settings
     public class RuntimeSettings
     {
         /// <summary>
-        /// All data is ready for run
+        /// All data is ready for running
         /// </summary>
         private bool isInitOk = false;
 
@@ -45,7 +45,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Settings
         public DownloadSettings DownloadSettings { get; private set; }
 
         /// <summary>
-        /// Output file can be overwriten without user confirmation 
+        /// Output file can be overwritten without user confirmation 
         /// </summary>
         public bool OutputOverwrite { get; private set; }
 
@@ -55,7 +55,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Settings
         public string LogFile { get; private set; }
 
         /// <summary>
-        /// Log file can be overwriten without user confirmation 
+        /// Log file can be overwritten without user confirmation 
         /// </summary>
         public bool LogFileOverwrite { get; private set; }
 
@@ -209,12 +209,13 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Settings
                 {
                     throw new DirectoryNotFoundException(string.Format(Resources.DirectoryNotFoundExceptionMessage, Path.GetDirectoryName(logFile)));
                 }
+
                 LogFile = logFile;
             }
         }
 
         /// <summary>
-        /// Check are all output-files confirmed for overwrite
+        /// Check are all output-files confirmed to overwrite
         /// </summary>
         /// <returns></returns>
         public bool FileOverwriteIsConfirmed()
@@ -239,7 +240,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Settings
         }
 
         /// <summary>
-        /// Check ar all settings ok, files exists and writable
+        /// Check are all settings ok, files exists and writable
         /// </summary>
         /// <param name="logger"></param>
         /// <returns></returns>

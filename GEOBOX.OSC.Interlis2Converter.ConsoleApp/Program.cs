@@ -58,7 +58,7 @@ namespace GEOBOX.OSC.Interlis2Converter.ConsoleApp
 
             try
             {
-                // Create and set values to runtime settings given vaalues (not empty) get checked
+                // Create and set values to runtime settings, given values (not empty) get checked
                 var runtimeSettings = new RuntimeSettings();
                 runtimeSettings.SetType(commandLineOptions.Type);
                 runtimeSettings.SetInputPath(commandLineOptions.InputDir);
@@ -70,7 +70,7 @@ namespace GEOBOX.OSC.Interlis2Converter.ConsoleApp
                 using (IController controller = (IController)Activator.CreateInstance(availableControllers[commandLineOptions.Type], new object[] { runtimeSettings, logger }))
                 {
                     logger?.WriteInformation(string.Format(Resources.MessageStartFunction, controller.DisplayName));
-                    //Check if needed arguments are present in the commandline
+                    //Check if needed arguments are present in the Command Line
                     if (!controller.CheckCommandlineOptions())
                     {
                         exitCode = ExitCode.Error;

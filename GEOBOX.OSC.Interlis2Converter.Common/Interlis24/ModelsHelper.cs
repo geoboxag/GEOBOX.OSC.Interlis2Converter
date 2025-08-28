@@ -28,7 +28,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
 
         #region Set Infos
         /// <summary>
-        /// Add model name if not exists in list
+        /// Add model name if it not exists in list
         /// </summary>
         /// <param name="model">Model Name</param>
         internal void AddModel(string model)

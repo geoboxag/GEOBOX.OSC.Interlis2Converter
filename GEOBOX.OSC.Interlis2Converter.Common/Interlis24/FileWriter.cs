@@ -5,7 +5,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
     internal class FileWriter
     {
         private XNamespace ili = "http://www.interlis.ch/xtf/2.4/INTERLIS";
-        // ToDo Checker is ready for write in all Helpers
+        // ToDo Checker is ready to write in all Helpers
         internal InfosHelper InfosHelper { get; private set; }
         internal ModelsHelper ModelsHelper { get; private set; }
         internal NamespaceHelper NamespaceHelper { get; private set; }
@@ -19,7 +19,6 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
             ModelsHelper = modelsHelper;
             NamespaceHelper = namespaceHelper;
             DatasectionHelper = datasectionHelper;
-
         }
 
         public void WriteXTF(string xtfFileToWrite) 
@@ -57,7 +56,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
         {
             XElement transfer = new XElement(ili + "transfer");
             transfer.Add(new XAttribute(XNamespace.Xmlns + "ili", ili));
-            // Namespaces as Attributs
+            // Namespaces as Attributes
             foreach (KeyValuePair<string, string> aliasNamespace in NamespaceHelper.Namespaces)
             {
                 transfer.Add(new XAttribute(XNamespace.Xmlns + aliasNamespace.Key, aliasNamespace.Value));
@@ -69,7 +68,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
         {
             XElement headerSection = new XElement(ili + "headersection");
 
-            // Add Models als Node
+            // Add Models as Node
             XElement models = new XElement(ili + "models");
             foreach (string modelName in ModelsHelper.Models)
             {
@@ -81,9 +80,9 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
             XElement sender = new XElement(ili + "sender", InfosHelper.Sender);
             headerSection.Add(sender);
 
-            // Comment (add only if there are any)
+            // Comment (add only if available)
             XElement comment = new XElement(ili + "comment", InfosHelper.Comment);
-            if(comment.HasElements)
+            if (comment.HasElements)
                 headerSection.Add(comment);
 
             return headerSection;

@@ -13,7 +13,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
 
         #region Propertys and Attributs
         /// <summary>
-        /// Type is the key in availlable controller list
+        /// Type is the key in available controller list
         /// </summary>
         private const string TYPE = "mergeDMAVfix";
         /// <summary>
@@ -21,7 +21,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
         /// </summary>
         public static string CommandType => TYPE; 
         /// <summary>
-        /// IController - Name for display and looger
+        /// IController - Name for display and logger
         /// </summary>
         public string DisplayName => String.Format(Resources.MergeDMAVDisplayName, TYPE);
 

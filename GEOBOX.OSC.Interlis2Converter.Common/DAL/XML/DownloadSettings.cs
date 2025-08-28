@@ -6,7 +6,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.DAL.XML
     public class DownloadSettings
     {
         /// <summary>
-        /// Dataset list containing infos the data (source and name)
+        /// Dataset list containing infos and the data (source and name)
         /// </summary>
         [XmlArray("FileDownloadSettings")]
         [XmlArrayItem("FileDownloadSetting")]

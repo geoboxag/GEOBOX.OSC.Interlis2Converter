@@ -168,7 +168,7 @@
     <comment>{0} = Angegebener Pfad</comment>
   </data>
   <data name="loggerStartMerging" xml:space="preserve">
-    <value>Starte die Zusammenführung der Datein</value>
+    <value>Starte die Zusammenführung der Dateien</value>
   </data>
   <data name="loggerStartMergingDatasection" xml:space="preserve">
     <value>Die DATASECTION wird zusammengeführt</value>
@@ -190,13 +190,13 @@
     <value>Ziel-Datei ist Schreibgeschützt</value>
   </data>
   <data name="OverwriteMeassgeOutputFile" xml:space="preserve">
-    <value>Ziel-Datei ist vorhanden, kann diese Überscchrieben werden?</value>
+    <value>Ziel-Datei ist vorhanden, kann diese Überschrieben werden?</value>
   </data>
   <data name="OverwriteMessageAllFiles" xml:space="preserve">
-    <value>Ziel-Datei und Protokoll-Datei sind vorhanden, können diese Überscchrieben werden?</value>
+    <value>Ziel-Datei und Protokoll-Datei sind vorhanden, können diese Überschrieben werden?</value>
   </data>
   <data name="OverwriteMessageLogFile" xml:space="preserve">
-    <value>Protokoll-Datei ist vorhanden, kann diese Überscchrieben werden?</value>
+    <value>Protokoll-Datei ist vorhanden, kann diese Überschrieben werden?</value>
   </data>
   <data name="OverwriteMessageOk" xml:space="preserve">
     <value>Dateien können überschrieben werden.</value>
@@ -208,7 +208,7 @@
     <value>ZIP-Datei wurde nicht gefunden</value>
   </data>
   <data name="ZipGeneralExceptionMessage" xml:space="preserve">
-    <value>Beim Entpacken wurde ist ein Problem aufgetreten: [{0}].</value>
+    <value>Beim Entpacken ist ein Problem aufgetreten: [{0}].</value>
     <comment>Message from exception.</comment>
   </data>
   <data name="ServiceDownloadDisplayName" xml:space="preserve">
@@ -237,7 +237,7 @@
     <comment>{0} Fortschritt %</comment>
   </data>
   <data name="GeneralExceptionMessage" xml:space="preserve">
-    <value>Es ist eine Problem aufgetretten: [{0}]</value>
+    <value>Es ist ein Problem aufgetretten: [{0}]</value>
   </data>
   <data name="ZipFileExistsWasDeletedMessage" xml:space="preserve">
     <value>Die ZIP-Datei '{0}' ist vorhanden, diese wurde gelöscht.</value>

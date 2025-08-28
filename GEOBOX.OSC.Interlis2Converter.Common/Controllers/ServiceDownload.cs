@@ -21,7 +21,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
         /// </summary>
         public static string CommandType => TYPE;
         /// <summary>
-        /// IController - Name for display and looger
+        /// IController - Name for display and logger
         /// </summary>
         public string DisplayName => String.Format(Resources.ServiceDownloadDisplayName, TYPE);
 
@@ -50,7 +50,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
 
         public bool Execute()
         {
-            // Check ist output Dir exists
+            // Check if output Dir exists
             if (!Directory.Exists(runtimeSettings.OutputDir))
             {
                 Console.WriteLine(Resources.OutputPathNotFoundMessage);
@@ -58,17 +58,17 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
                 return false;
             }
 
-            //Download the Files from their URLs
+            // Download the Files from their URLs
             foreach (FileDownloadSetting fileDownloadSetting in runtimeSettings.DownloadSettings.FileDownloadSettings)
             {
                 Console.WriteLine(string.Format(Resources.DownloadFileStartMessage, fileDownloadSetting.FileName));
                 Logger.WriteInformation(string.Format(Resources.DownloadFileStartMessage, fileDownloadSetting.FileName));
                 // Create Downloaders
                 var downloader = new FileDownloader();
-                //Add .zip for the downloadfolder that gets deleted later, download needs to target a .zip file
+                //Add .zip for the download folder that gets deleted later, download needs to target a .zip file
                 string tempZIPFilePath = Path.Combine(runtimeSettings.OutputDir, $"{fileDownloadSetting.FileName}.zip");
 
-                // Check is exists temp zip file and delete this
+                // Check if temp zip file exists and delete this
                 if (File.Exists(tempZIPFilePath))
                 {
                     try
@@ -131,7 +131,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
                     continue;
                 }
 
-                //delete zip file from download
+                // delete zip file from download
                 try
                 {
                     ZipHelper.DeleteZipFile(tempZIPFilePath);
@@ -154,7 +154,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
         }
 
         /// <summary>
-        /// Check are all command line options valid for this command
+        /// Check if all command line options are valid for this command
         /// </summary>
         /// <returns></returns>
         public bool CheckCommandlineOptions()

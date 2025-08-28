@@ -57,7 +57,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
         #region Set Infos
         /// <summary>
         /// set the sender
-        /// first value will set (first wins)
+        /// first value will be set (first wins)
         /// </summary>
         /// <param name="sender">sender text from XTF</param>
         internal void SetSenderIsNotSet(string senderText)
@@ -70,7 +70,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
         }
 
         /// <summary>
-        /// Append comment t
+        /// Append comment
         /// </summary>
         /// <param name="commentToAppend"></param>
         internal void AppendComment(string commentToAppend)

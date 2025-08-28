@@ -38,7 +38,7 @@ namespace GEOBOX.OSC.Common.Logging
         /// Constructor.
         /// </summary>
         /// <param name="toLogger">Logger to write to.</param>
-        /// <param name="disposeLogger">if true, ToLogger will be disposed if this object is disposed.</param>
+        /// <param name="disposeLogger">if true, toLogger will be disposed if this object is disposed.</param>
         public CustomerFriendlyLogger(ILogger toLogger, bool disposeLogger)
         {
             ToLogger = toLogger;
@@ -46,7 +46,7 @@ namespace GEOBOX.OSC.Common.Logging
         }
 
         /// <summary>
-        ///Destructor.
+        /// Destructor.
         /// </summary>
         ~CustomerFriendlyLogger()
         {

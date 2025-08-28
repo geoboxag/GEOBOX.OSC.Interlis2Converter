@@ -28,13 +28,13 @@ namespace GEOBOX.OSC.Interlis2Converter.ConsoleApp.Batch
         /// <summary>
         /// Name of the folder
         /// </summary>
-        [Option('d', "outputDir", HelpText = "Angabe des Datei-Pfades (Ordner) für das Speicher des Resultates (Zusammengeführte Interlis (XTF-Datei) oder XTF-Dateien aus dem Download).", Required=true)]
+        [Option('d', "outputDir", HelpText = "Angabe des Datei-Pfades (Ordner) für das Speichern des Resultates (Zusammengeführte Interlis (XTF-Datei) oder XTF-Dateien aus dem Download).", Required=true)]
         public string OutputDir { get; set; }
         
         /// <summary>
         /// Download config file name and path
         /// </summary>
-        [Option('c', "downloadConfig", HelpText = "Angabe des Pfades und Dateiname zur Konfigurationsdatei für den Download der Daten aus den Web-Services.")]
+        [Option('c', "downloadConfig", HelpText = "Angabe des Pfades und Dateiname zur Konfigurationsdatei, für den Download der Daten aus den Web-Services.")]
         public string DownloadConfig { get; set; }
 
         /// <summary>

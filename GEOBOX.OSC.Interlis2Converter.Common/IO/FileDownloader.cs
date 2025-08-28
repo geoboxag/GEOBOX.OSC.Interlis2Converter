@@ -9,7 +9,7 @@
         internal event EventHandler<double> DownloadProgressChanged;
 
         /// <summary>
-        /// File Donwloader
+        /// File Downloader
         /// </summary>
         internal FileDownloader()
         {

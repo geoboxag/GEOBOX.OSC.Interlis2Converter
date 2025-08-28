@@ -16,7 +16,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.IO
         /// <param name="outputFolder">directory where files should be extracted to</param>
         /// <param name="xtfFileSaveName">new filename for xtf file</param>
         /// <param name="logger">logger for messages</param>
-        /// <returns>counts of extracted files</returns>
+        /// <returns>count of extracted files</returns>
         /// <exception cref="FileNotFoundException"></exception>
         /// <exception cref="DirectoryNotFoundException"></exception>
         /// <exception cref="ArgumentNullException"></exception>
@@ -27,7 +27,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.IO
             {
                 throw new FileNotFoundException(Resources.ZipHelperFileNotFoundMessage, zipPath);
             }
-            // Verify the output folder is exists
+            // Verify the output folder exists
             if (!Directory.Exists(outputFolder))
             {
                 throw new DirectoryNotFoundException();
@@ -83,7 +83,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.IO
         /// <param name="zipFilePath">Full path to ZIP file (e.g C:\Temp\interlis.zip)</param>
         /// <returns>true file are deleted</returns>
         /// <exception cref="ArgumentNullException">zipFilepath is null or empty</exception>
-        /// <exception cref="FileNotFoundException">file not exists</exception>
+        /// <exception cref="FileNotFoundException">file does not exist</exception>
         internal static bool DeleteZipFile(string zipFilePath)
         {
             if (string.IsNullOrEmpty (zipFilePath)) 
