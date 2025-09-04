@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Beispiel Datei für die Einstellungen des Downloades der XTF-Dateien von den Web-Services 
--- Die Dateien werden im Output Verzeichnis mit dem Name "FileName" gespeichert.
--- Nach dem Download der ZIP-Datei werden sämtliche XTF Dateien aus dem ZIP entpackt. Und die ZIP-Datei wieder gelöscht. -->
+<!--
+	Beispiel Datei für die Einstellungen des Downloades der XTF-Dateien von den Web-Services 
+	Die Dateien werden im Output Verzeichnis mit dem Name "FileName" gespeichert.
+	Nach dem Download der ZIP-Datei werden sämtliche XTF Dateien aus dem ZIP entpackt. Und die ZIP-Datei wieder gelöscht. 
+-->
 <DownloadSettings>
 	<FileDownloadSettings>
 		<!-- Fixpunkte der Kategorie 1 - geo.admin.ch - Datensatz der swisstopo -->
