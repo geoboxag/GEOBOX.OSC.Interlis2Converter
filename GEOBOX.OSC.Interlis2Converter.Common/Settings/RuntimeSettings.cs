@@ -246,7 +246,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Settings
         /// <returns></returns>
         public bool CheckSettings(ILogger logger)
         {
-            bool isInitOk = IsInitOk(logger);
+            isInitOk = IsInitOk(logger);
 
             if (!isInitOk)
             {
@@ -259,30 +259,32 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Settings
         {
             if (string.IsNullOrEmpty(InputPath))
             {
-                isInitOk = false;
                 logger?.WriteWarning($"{nameof(InputPath)} enthält keine Angabe.");
-                return isInitOk;
+                return false;
             }
             if (string.IsNullOrEmpty(OutputFile))
             {
-                isInitOk = false;
                 logger?.WriteWarning($"{nameof(OutputFile)} enthält keine Angabe.");
-                return isInitOk;
+                return false;
             }
             if (string.IsNullOrEmpty(LogFile))
             {
-                isInitOk = false;
                 logger?.WriteWarning($"{nameof(LogFile)} enthält keine Angabe.");
-                return isInitOk;
+                return false;
             }
-            if (!string.IsNullOrEmpty(DownloadConfigFilePath) && DownloadSettings == null)
+            if (string.IsNullOrEmpty(OutputDir))
             {
-                isInitOk = false;
-                logger?.WriteWarning($"{nameof(DownloadConfigFilePath)} ist ungültig. Datei konnte nicht gelesen werden.");
-                return isInitOk;
+                logger?.WriteWarning($"{nameof(OutputDir)} enthält keine Angabe.");
+                return false;
             }
 
-            return isInitOk;
+            if (!string.IsNullOrEmpty(DownloadConfigFilePath) && DownloadSettings == null)
+            {
+                logger?.WriteWarning($"{nameof(DownloadConfigFilePath)} ist ungültig. Datei konnte nicht gelesen werden.");
+                return false;
+            }
+
+            return true;
         }
 
         private bool CheckIsFileReadOnly(string path)
