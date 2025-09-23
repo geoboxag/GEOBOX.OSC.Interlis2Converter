@@ -59,8 +59,9 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
             {
                 return false;
             }
+
             // 1. Read the XTF files
-            var filesToRead = GetDMAVFilesToReadInCorrectOrder(runtimeSettings.InputPath);
+            var filesToRead = GetDMAVFilesToReadByModelInCorrectOrder(runtimeSettings.InputPath);
             // ToDo add Logger to file reader and log message during read files
 
             // 2. Read Namespaces, Models, Datasection from Interlis an Collect the data
@@ -97,32 +98,28 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
 
         #region Create and Get Files for Read
         /// <summary>
-        /// File Names in correct order to read
+        /// Exising File Names in correct order, selected by allowed model list
         /// </summary>
-        private List<string> GetDMAVFilesToReadInCorrectOrder(string sourcePath)
+        private List<string> GetDMAVFilesToReadByModelInCorrectOrder(string sourcePath)
         {
-            List<string> dmavFilesToReadInCorrectOrder = new List<string>()
+            List<string> allowedModelNamesInCorrectOrder = new List<string>() 
             {
-                "DMAV_Bodenbedeckung.xtf",
-                "DMAV_DauerndeBodenverschiebungen.xtf",
-                "DMAV_Dienstbarkeitsgrenzen.xtf",
-                "DMAV_Einzelobjekte.xtf",
-                "KGK_PFDS2.xtf",
-                //"DMAV_FixpunkteAVKategorie2.xtf", removed from swisstopo in version 01.05.2025
-                "DMAV_FixpunkteAVKategorie3.xtf",
-                "FixpunkteLV_LFP.xtf", "FixpunkteLV_HFP.xtf",
-                // "DMAV_FixpunkteLV.xtf", removed from swisstopo in version 01.05.2025
-                "DMAV_Gebäudeadressen.xtf", "DMAV_Gebaeudeadressen.xtf",
-                "DMAV_Grundstücke.xtf", "DMAV_Grundstuecke.xtf",
-                "DMAV_HoheitsgrenzenAV.xtf",
-                "HoheitsgrenzenLV.xtf",
-                //"DMAV_HoheitsgrenzenLV.xtf", removed from swisstopo in version 01.05.2025
-                "DMAV_Nomenklatur.xtf",
-                "OrtschaftsverzeichnisPLZ.xtf",
-                //"DMAV_PLZ_Ortschaft.xtf", removed from swisstopo in version 01.05.2025
-                "DMAV_Rohrleitungen.xtf",
-                "DMAV_Toleranzstufen.xtf",
-                "DMAVSUP_UntereinheitGrundbuch.xtf"
+                "DMAV_Bodenbedeckung_V1_0",
+                "DMAV_DauerndeBodenverschiebungen_V1_0",
+                "DMAV_Dienstbarkeitsgrenzen_V1_0",
+                "DMAV_Einzelobjekte_V1_0",
+                "KGKCGC_FPDS2_V1_1",
+                "DMAV_FixpunkteAVKategorie3_V1_0",
+                "FixpunkteLV_V1_0",
+                "DMAV_Gebaeudeadressen_V1_0",
+                "DMAV_Grundstuecke_V1_0",
+                "DMAV_HoheitsgrenzenAV_V1_0",
+                "HoheitsgrenzenLV_V1_0",
+                "DMAV_Nomenklatur_V1_0",
+                "OfficialIndexOfLocalities_V1_0",
+                "DMAV_Rohrleitungen_V1_0",
+                "DMAV_Toleranzstufen_V1_0",
+                "DMAVSUP_UntereinheitGrundbuch_V1_0"
             };
 
             if (string.IsNullOrEmpty(sourcePath))
@@ -134,16 +131,11 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
                 throw new DirectoryNotFoundException(sourcePath);
             }
 
-            var fileList = new List<string>();
+            var fileReader = new FileReader();
 
-            foreach (string fileName in dmavFilesToReadInCorrectOrder)
-            {
-                fileList.Add(Path.Combine(sourcePath, fileName));
-            }
-
-            return fileList;
-
+            return fileReader.FindXtfFilesByModelinCorrectOrder(sourcePath, allowedModelNamesInCorrectOrder);
         }
+
         #endregion
 
         #region IDisposable Support

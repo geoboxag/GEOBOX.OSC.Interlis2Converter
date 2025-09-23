@@ -30,6 +30,63 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
         }
 
         /// <summary>
+        /// Reads all model names in each XML file and returns the paths of those that appear in the allowedModelNamesInCorrectOrder-list in the same order.
+        /// </summary>
+        /// <param name="rootFolder"></param>
+        /// <param name="allowedModelNamesInCorrectOrder"></param>
+        /// <returns></returns>
+        internal List<string> FindXtfFilesByModelinCorrectOrder(string rootFolder, List<string> allowedModelNamesInCorrectOrder)
+        {
+            var fileList = new List<string>();
+            var modelPathDictionary = new Dictionary<string, string>();
+
+            foreach (var xtfFilePath in Directory.EnumerateFiles(rootFolder, "*.xtf", SearchOption.TopDirectoryOnly))
+            {
+                try
+                {
+                    using (var xmlReader = XmlReader.Create(xtfFilePath))
+                    {
+                        if (xmlReader == null)
+                        {
+                            // ToDo Logger
+                            continue;
+                        }
+
+                        XDocument xDocument = XDocument.Load(xmlReader);
+
+                        var model = xDocument.Descendants(XName.Get("model", "http://www.interlis.ch/xtf/2.4/INTERLIS")).FirstOrDefault();
+
+                        if (allowedModelNamesInCorrectOrder.Contains(model.Value))
+                        {
+                            // no duplicate models
+                            if (!modelPathDictionary.ContainsKey(model.Value))
+                            {
+                                modelPathDictionary.Add(model.Value, xtfFilePath);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex) 
+                {
+#if DEBUG
+                    Debug.WriteLine(ex.Message);
+#endif
+                }
+            }
+
+            // fill and sort fileList
+            foreach (var model in allowedModelNamesInCorrectOrder)
+            {
+                if (modelPathDictionary.ContainsKey(model))
+                {
+                    fileList.Add(modelPathDictionary[model]);
+                }
+            }
+
+            return fileList;
+        }
+
+        /// <summary>
         /// Read XTF File and collect infos for writing
         /// </summary>
         /// <param name="xtfFileToRead">Path to file and file name with extension e.g. C:\Temp\AVBB.xtf</param>

@@ -29,7 +29,7 @@ Argument | Beschrieb
 5. Kontrolliere die Ausgaben auf der Konsole und in der Protokolldatei.
 
 ### Vorgehen für das Datenmodell DMAV
-1. Exportiere themenweise in einzelene Interlis Dateien aus dem GIS-System.
+1. Exportiere themenweise in einzelne Interlis Dateien aus dem GIS-System.
 2. Speichere/Kopiere alle Dateien zum Zusammenführen in ein Verzeichnis (Achte beim Typ "mergeDMAVfix" auf die korrekten Dateinamen).
 3. Führe die Dateien mit diesem Tool zusammen - es wird eine neue Datei erstellt.
 
@@ -38,18 +38,18 @@ Argument | Beschrieb
 #### Beispielaufruf
 ```--type mergeDMAVfix --inputDir "C:\Interlis" --outputFile "DMAV_alles.xtf" --outputDir "C:\Interlis" --logFile "C:\Interlis\DMAV_alles.log"```
 ### Beschrieb
-Es werden die Dateien anhand eines fixen Dateinamens im Verzeichnis gesucht, den Inhalt ausgelesen und zusammengeführt. Die Namespaces werden anhand des Alias gelesen und doppelte Aliase werden entfernt. 
+Bei allen XTF-Dateien im angegebenen Verzeichnis wird der Modellname ausgelesen. Alle XTF-Dateien dessen Modellname nicht der Erlaubten Liste entspricht werden gefiltert. Bei den übrigen Dateien wird der Inhalt ausgelesen und zusammengeführt. Die Namespaces werden anhand des Alias gelesen und doppelte Aliase werden entfernt. Pro Modellname kann nur eine XTF Datei zusammengeführt werden. Sollte eine XTF Datei mehrere Modelle beinhalten, wird das erste für die Filterung verwendet.
 
-> HINWEIS: Die Dateien werden nicht geprüft, ob es das korrekte Modell beinhaltet.
+> HINWEIS: Die Dateien werden, neben dem Modellnamen, nicht geprüft, ob es das korrekte Modell beinhaltet.
 
-Dateinamen: "DMAV_Bodenbedeckung.xtf", "DMAV_DauerndeBodenverschiebungen.xtf", "DMAV_Dienstbarkeitsgrenzen.xtf", "DMAV_Einzelobjekte.xtf", "KGK_PFDS2.xtf", "DMAV_FixpunkteAVKategorie3.xtf", "FixpunkteLV_LFP.xtf", "FixpunkteLV_HFP.xtf", "DMAV_Gebauudeadressen.xtf", "DMAV_Grundstuecke.xtf", "DMAV_HoheitsgrenzenAV.xtf", "HoheitsgrenzenLV.xtf", "DMAV_Nomenklatur.xtf", "OrtschaftsverzeichnisPLZ.xtf", "DMAV_Rohrleitungen.xtf", "DMAV_Toleranzstufen.xtf", "DMAVSUP_UntereinheitGrundbuch.xtf" 
+Erlaubte Modellnamen: "DMAV_Bodenbedeckung_V1_0", "DMAV_DauerndeBodenverschiebungen_V1_0", "DMAV_Dienstbarkeitsgrenzen_V1_0", "DMAV_Einzelobjekte_V1_0", "KGKCGC_FPDS2_V1_1", "DMAV_FixpunkteAVKategorie3_V1_0", "FixpunkteLV_V1_0", "DMAV_Gebaeudeadressen_V1_0", "DMAV_Grundstuecke_V1_0", "DMAV_HoheitsgrenzenAV_V1_0", "HoheitsgrenzenLV_V1_0", "DMAV_Nomenklatur_V1_0", "OfficialIndexOfLocalities_V1_0", "DMAV_Rohrleitungen_V1_0", "DMAV_Toleranzstufen_V1_0", "DMAVSUP_UntereinheitGrundbuch_V1_0"
 
 ### Typ "serviceDownload"
 #### Beispielaufruf
 ```--type serviceDownload --outputDir "C:\Interlis" --downloadConfig "C:\Interlis\OSCConfig\ServiceDownloadConfig.xml" --logFile "C:\Interlis\ServiceDownload.log"```
 ### Beschrieb
 Es werden die Daten von der Angegeben URL heruntergeladen und mit dem gewünschten Namen in das Verzeichnis (outputDir) gespeichert.
-In der Regel wird eine ZIP-Datei heruntergeladen, sämtliche XTF-Dateien die sich in der ZIP-Datei befinden werden extrahiert. Wenn mehr als eine XTF Dateie gefunden wird, werden die weiteren Dateien mit einem Zeitstempel zu Beginn des Dateinamens gekennzeichnet. 
+In der Regel wird eine ZIP-Datei heruntergeladen, sämtliche XTF-Dateien die sich in der ZIP-Datei befinden werden extrahiert. Wenn mehr als eine XTF Datei gefunden wird, werden die weiteren Dateien mit einem Zeitstempel zu Beginn des Dateinamens gekennzeichnet. 
 
 > HINWEIS: Die Dateien werden nicht geprüft, ob es das korrekte Modell beinhaltet, und werden ohne Rückfragen überschrieben, falls die Datei schon existiert.
 
