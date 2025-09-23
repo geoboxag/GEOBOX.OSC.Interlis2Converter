@@ -38,7 +38,7 @@ Argument | Beschrieb
 #### Beispielaufruf
 ```--type mergeDMAVfix --inputDir "C:\Interlis" --outputFile "DMAV_alles.xtf" --outputDir "C:\Interlis" --logFile "C:\Interlis\DMAV_alles.log"```
 ### Beschrieb
-Bei allen XTF-Dateien im angegebenen Verzeichnis wird der Modellname ausgelesen. Alle XTF-Dateien dessen Modellname nicht der Erlaubten Liste entspricht werden gefiltert. Bei den übrigen Dateien wird der Inhalt ausgelesen und zusammengeführt. Die Namespaces werden anhand des Alias gelesen und doppelte Aliase werden entfernt. Pro Modellname kann nur eine XTF Datei zusammengeführt werden. Sollte eine XTF Datei mehrere Modelle beinhalten, wird das erste für die Filterung verwendet.
+Bei allen XTF-Dateien im angegebenen Verzeichnis wird der Modellname ausgelesen. Alle XTF-Dateien dessen Modellname nicht der Erlaubten Liste entspricht werden gefiltert. Bei den übrigen Dateien wird der Inhalt ausgelesen und zusammengeführt. Die Namespaces werden anhand des Alias gelesen und doppelte Aliase werden entfernt. Pro Modellname kann nur eine XTF-Datei zusammengeführt werden. Sollte eine XTF-Datei mehrere Modelle beinhalten, wird das erste für die Filterung verwendet.
 
 > HINWEIS: Die Dateien werden, neben dem Modellnamen, nicht geprüft, ob es das korrekte Modell beinhaltet.
 
