@@ -34,15 +34,15 @@ Argument | Beschrieb
 3. Führe die Dateien mit diesem Tool zusammen - es wird eine neue Datei erstellt.
 
 ## Funktionen
-### Typ "mergeDMAVfix"
+### Typ "mergeDMAV"
 #### Beispielaufruf
-```--type mergeDMAVfix --inputDir "C:\Interlis" --outputFile "DMAV_alles.xtf" --outputDir "C:\Interlis" --logFile "C:\Interlis\DMAV_alles.log"```
+```--type mergeDMAV --inputDir "C:\Interlis" --outputFile "DMAV_alles.xtf" --outputDir "C:\Interlis" --logFile "C:\Interlis\DMAV_alles.log"```
 ### Beschrieb
-Bei allen XTF-Dateien im angegebenen Verzeichnis wird der Modellname ausgelesen. Alle XTF-Dateien dessen Modellname nicht der Erlaubten Liste entspricht werden gefiltert. Bei den übrigen Dateien wird der Inhalt ausgelesen und zusammengeführt. Die Namespaces werden anhand des Alias gelesen und doppelte Aliase werden entfernt. Pro Modellname kann nur eine XTF-Datei zusammengeführt werden. Sollte eine XTF-Datei mehrere Modelle beinhalten, wird das erste für die Filterung verwendet.
+Bei allen XTF-Dateien im angegebenen Verzeichnis wird der Modellname ausgelesen. Alle XTF-Dateien dessen Modellname nicht der Erlaubten Liste entspricht werden gefiltert. Bei den übrigen Dateien wird der Inhalt ausgelesen und zusammengeführt. Die Namespaces werden anhand des Alias gelesen und doppelte Aliase werden entfernt. Pro Modellname kann nur eine XTF-Datei zusammengeführt werden. Sollte eine XTF-Datei mehrere Modelle beinhalten, wird diese Ignoriert.
 
 > HINWEIS: Die Dateien werden, neben dem Modellnamen, nicht geprüft, ob es das korrekte Modell beinhaltet.
 
-Erlaubte Modellnamen: "DMAV_Bodenbedeckung_V1_0", "DMAV_DauerndeBodenverschiebungen_V1_0", "DMAV_Dienstbarkeitsgrenzen_V1_0", "DMAV_Einzelobjekte_V1_0", "KGKCGC_FPDS2_V1_1", "DMAV_FixpunkteAVKategorie3_V1_0", "FixpunkteLV_V1_0", "DMAV_Gebaeudeadressen_V1_0", "DMAV_Grundstuecke_V1_0", "DMAV_HoheitsgrenzenAV_V1_0", "HoheitsgrenzenLV_V1_0", "DMAV_Nomenklatur_V1_0", "OfficialIndexOfLocalities_V1_0", "DMAV_Rohrleitungen_V1_0", "DMAV_Toleranzstufen_V1_0", "DMAVSUP_UntereinheitGrundbuch_V1_0"
+Erlaubte Modellnamen: "DMAV_Bodenbedeckung_V1_1", "DMAV_DauerndeBodenverschiebungen_V1_1", "DMAV_Dienstbarkeitsgrenzen_V1_1", "DMAV_Einzelobjekte_V1_1", "DMAV_FixpunkteAVKategorie3_V1_1", "DMAV_Gebaeudeadressen_V1_1", "DMAV_Grundstuecke_V1_1", "DMAV_HoheitsgrenzenAV_V1_0", "DMAV_Nomenklatur_V1_1", "DMAV_Rohrleitungen_V1_1", "DMAV_Toleranzstufen_V1_1", "DMAVSUP_UntereinheitGrundbuch_V1_1", "FixpunkteLV_V1_0", "KGKCGC_FPDS2_V1_1", "HoheitsgrenzenLV_V1_0", "OfficialIndexOfLocalities_V1_0"
 
 ### Typ "serviceDownload"
 #### Beispielaufruf
