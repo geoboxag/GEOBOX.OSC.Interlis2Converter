@@ -13,7 +13,7 @@
         {
             var availableControllers = new Dictionary<string, Type>
             {
-                { MergeDMAVfix.CommandType, typeof(MergeDMAVfix) },
+                { MergeDMAV.CommandType, typeof(MergeDMAV) },
                 { ServiceDownload.CommandType, typeof(ServiceDownload) },
             };
 

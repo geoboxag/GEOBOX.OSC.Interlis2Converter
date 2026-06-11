@@ -6,16 +6,16 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
 {
-    public class MergeDMAVfix : IController
+    public class MergeDMAV : IController
     {
         // DEBUG:
-        // --type mergeDMAVfix --inputDir "C:\_daten\Interlis" --outputFile "C:\_daten\Interlis\DMAV_alles.xtf" --logFile "C:\_daten\Interlis\DMAV_alles.log"
+        // --type mergeDMAV --inputDir "C:\_daten\Interlis" --outputFile "C:\_daten\Interlis\DMAV_alles.xtf" --logFile "C:\_daten\Interlis\DMAV_alles.log"
 
         #region Propertys and Attributs
         /// <summary>
         /// Type is the key in available controller list
         /// </summary>
-        private const string TYPE = "mergeDMAVfix";
+        private const string TYPE = "mergeDMAV";
         /// <summary>
         /// IController - Command Type name
         /// </summary>
@@ -41,7 +41,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
         /// Constructor for convert
         /// </summary>
         /// <param name="data">runtime data with all settings</param>
-        public MergeDMAVfix(RuntimeSettings data, ILogger logger)
+        public MergeDMAV(RuntimeSettings data, ILogger logger)
         {
             runtimeSettings = data;
             Logger = logger;
