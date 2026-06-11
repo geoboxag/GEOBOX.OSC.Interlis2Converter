@@ -22,16 +22,13 @@ namespace GEOBOX.OSC.Interlis2Converter.ConsoleApp
         static int Main(string[] args)
         {
             WriteWelcomeMessage();
-            if (args != null && args.Length > 0)
-            // run as command line app
-            {
-                var commandLineOptions = Parser.Default.ParseArguments<CommandLineOptions>(args)
+
+            var commandLineOptions = Parser.Default.ParseArguments<CommandLineOptions>(args)
                 .WithParsed(RunOptions)
                 .WithNotParsed(HandleParseError);
 #if DEBUG
-                Console.ReadKey();
+            Console.ReadKey();
 #endif          
-            }
             return (int)exitCode;
         }
 
@@ -116,6 +113,15 @@ namespace GEOBOX.OSC.Interlis2Converter.ConsoleApp
         /// <param name="errors"></param>
         static void HandleParseError(IEnumerable<Error> errors)
         {
+            foreach (var error in errors)
+            {
+                if (error.Tag == ErrorType.HelpRequestedError || error.Tag == ErrorType.VersionRequestedError)
+                {
+                    exitCode = ExitCode.Success;
+                    return;
+                }
+            }
+
             Console.WriteLine(Resources.CMDCallWithError);
             exitCode = ExitCode.Error;
         }

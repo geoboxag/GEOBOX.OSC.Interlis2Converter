@@ -7,6 +7,13 @@
     "Merge-DMAV-fix": {
       "commandName": "Project",
       "commandLineArgs": "--type mergeDMAVfix --inputDir \"C:\\_daten\\Interlis\"\r\n--outputFile \"DMAV_alles.xtf\"\r\n--outputDir \"C:\\_daten\\Interlis\"\r\n--logFile \"C:\\_daten\\Interlis\\DMAV_alles.log\""
+    },
+    "Ohne Parameter": {
+      "commandName": "Project"
+    },
+    "Parameter Help": {
+      "commandName": "Project",
+      "commandLineArgs": "--help"
     }
   }
 }

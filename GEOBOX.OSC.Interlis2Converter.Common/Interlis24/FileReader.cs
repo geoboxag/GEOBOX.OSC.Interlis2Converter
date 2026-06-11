@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Reflection;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -53,17 +54,29 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
                         }
 
                         XDocument xDocument = XDocument.Load(xmlReader);
+                        // the list of models is not necessarily sorted
+                        // var model = xDocument.Descendants(XName.Get("model", "http://www.interlis.ch/xtf/2.4/INTERLIS")).FirstOrDefault();
+                        var models = xDocument.Descendants(XName.Get("model", "http://www.interlis.ch/xtf/2.4/INTERLIS"));
 
-                        var model = xDocument.Descendants(XName.Get("model", "http://www.interlis.ch/xtf/2.4/INTERLIS")).FirstOrDefault();
+                        int foundModelCounts = 0;
 
-                        if (allowedModelNamesInCorrectOrder.Contains(model.Value))
+                        string modelName = null;
+
+                        foreach (var model in models)
                         {
-                            // no duplicate models
-                            if (!modelPathDictionary.ContainsKey(model.Value))
+                            if (allowedModelNamesInCorrectOrder.Contains(model.Value))
                             {
-                                modelPathDictionary.Add(model.Value, xtfFilePath);
+                                modelName = model.Value;
+                                foundModelCounts++;
                             }
                         }
+
+                        // add the file to the list if only one model was found (if several models are found, this suggests a DMAVTYP_alles file)
+                        if (!modelPathDictionary.ContainsKey(modelName))
+                        {
+                            modelPathDictionary.Add(modelName, xtfFilePath);
+                        }
+
                     }
                 }
                 catch (Exception ex) 
