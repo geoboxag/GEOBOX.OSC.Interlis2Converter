@@ -1,4 +1,6 @@
-﻿using System.Xml.Linq;
+﻿using System.Text;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
 {
@@ -11,7 +13,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
         internal NamespaceHelper NamespaceHelper { get; private set; }
         internal DatasectionHelper DatasectionHelper { get; private set; }
 
-        private XDocument xmlWriter;
+        private XDocument xDocument;
 
         public FileWriter(InfosHelper infosHelper, ModelsHelper modelsHelper, NamespaceHelper namespaceHelper, DatasectionHelper datasectionHelper) 
         {
@@ -36,7 +38,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
                 // ToDo check is file writable
             }
 
-            xmlWriter = new XDocument();
+            xDocument = new XDocument();
 
             // 1. Start Tag - Transfer
             // 2. Namespaces
@@ -48,8 +50,11 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
             // 4. Datasection
             tranfer.Add(GetDatasection());
 
-            xmlWriter.Add(tranfer);
-            xmlWriter.Save(xtfFileToWrite);
+            using (var xmlWriter = XmlWriter.Create(xtfFileToWrite, new XmlWriterSettings { Encoding = new UTF8Encoding(false) }))
+            {
+                xDocument.Add(tranfer);
+                xDocument.Save(xmlWriter);
+            }
         }
 
         private XElement GetTransferElement()
