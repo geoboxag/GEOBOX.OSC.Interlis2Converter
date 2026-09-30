@@ -77,7 +77,7 @@ Beispiel für die Fixpunkte der Kategorie 1 (weitere Beispiele sind in der Sampl
 
 ## Voraussetzungen und Installation
 ### Voraussetzung
-- Microsoft .NET Framework 8
+- Microsoft .NET Framework 10
 
 ### Installation
 - Es benötigt keine Installation.
