@@ -90,6 +90,7 @@ namespace GEOBOX.OSC.Interlis2Converter.ConsoleApp
                         exitCode = ExitCode.Error;
                     }
 
+                    ((CustomerFriendlyLogger)logger).WriteFooter();
                     logger?.Dispose();
                     return;
                 }

@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using GEOBOX.OSC.Common.Logging;
+using GEOBOX.OSC.Interlis2Converter.Common.Properties;
+using System.Diagnostics;
 using System.Reflection;
 using System.Xml;
 using System.Xml.Linq;
@@ -36,7 +38,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
         /// <param name="rootFolder"></param>
         /// <param name="allowedModelNamesInCorrectOrder"></param>
         /// <returns></returns>
-        internal List<string> FindXtfFilesByModelinCorrectOrder(string rootFolder, List<string> allowedModelNamesInCorrectOrder)
+        internal List<string> FindXtfFilesByModelinCorrectOrder(string rootFolder, List<string> allowedModelNamesInCorrectOrder, ILogger logger)
         {
             var fileList = new List<string>();
             var modelPathDictionary = new Dictionary<string, string>();
@@ -49,7 +51,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
                     {
                         if (xmlReader == null)
                         {
-                            // ToDo Logger
+                            logger.WriteWarning(string.Format(Resources.FileReaderNotAXMLFile, xtfFilePath));
                             continue;
                         }
 
@@ -71,6 +73,18 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
                             }
                         }
 
+                        if (foundModelCounts > 1) {
+                            logger.WriteWarning(string.Format(Resources.FileReaderTooManyModelsFound, xtfFilePath));
+                            continue;
+                        }
+
+                        if (foundModelCounts == 0)
+                        {
+                            logger.WriteWarning(string.Format(Resources.FileReaderTooManyModelsFound, xtfFilePath));
+                            continue;
+                        }
+
+
                         // add the file to the list if only one model was found (if several models are found, this suggests a DMAVTYP_alles file)
                         if (!modelPathDictionary.ContainsKey(modelName))
                         {
@@ -81,6 +95,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Interlis24
                 }
                 catch (Exception ex) 
                 {
+                    logger.WriteWarning(string.Format(Resources.FileReaderReadException, xtfFilePath, ex.Message));
 #if DEBUG
                     Debug.WriteLine(ex.Message);
 #endif

@@ -11,9 +11,13 @@
       "commandName": "Project",
       "commandLineArgs": "--help"
     },
-    "Merge-DMAV": {
+    "Merge-DMAVZH11": {
       "commandName": "Project",
-      "commandLineArgs": "--type mergeDMAV --inputDir \"C:\\_daten\\Interlis\"\r\n--outputFile \"DMAV_alles.xtf\"\r\n--outputDir \"C:\\_daten\\Interlis\"\r\n--logFile \"C:\\_daten\\Interlis\\DMAV_alles.log\""
+      "commandLineArgs": "--type mergeDMAVZH11 --inputDir \"C:\\_daten\\Interlis\\DMAV_ZH\"\r\n--outputFile \"DMAVZH11_alles.xtf\"\r\n--outputDir \"C:\\_daten\\Interlis\\DMAV_ZH\"\r\n--logFile \"C:\\_daten\\Interlis\\DMAV_ZH\\DMAVZH_alles.log\""
+    },
+    "Merge-DMAV12": {
+      "commandName": "Project",
+      "commandLineArgs": "--type mergeDMAV12 --inputDir \"C:\\_daten\\Interlis\"\r\n--outputFile \"DMAV12_alles.xtf\"\r\n--outputDir \"C:\\_daten\\Interlis\"\r\n--logFile \"C:\\_daten\\Interlis\\DMAV_alles.log\""
     }
   }
 }

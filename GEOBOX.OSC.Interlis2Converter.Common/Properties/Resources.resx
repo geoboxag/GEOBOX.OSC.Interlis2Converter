@@ -183,7 +183,11 @@
     <value>Beim Zusammenführen der Dateien ist ein Unbekannter Fehler aufgetreten</value>
   </data>
   <data name="MergeDMAVDisplayName" xml:space="preserve">
-    <value>{0}: DMAV Zusammenführen zu einer Datei (DMAV alles).</value>
+    <value>{0}: DMAV Zusammenführen zu einer Datei (DMAVTYM_Alles).</value>
+    <comment>{0} CommandType</comment>
+  </data>
+  <data name="MergeDMAVZHDisplayName" xml:space="preserve">
+    <value>{0}: DMAV Zusammenführen zu einer Datei (DMAVTYM_Alles_ZH).</value>
     <comment>{0} CommandType</comment>
   </data>
   <data name="OutputFileReadOnlyMessage" xml:space="preserve">
@@ -259,5 +263,17 @@
   </data>
   <data name="ZipExtractCountSuccesMessage" xml:space="preserve">
     <value>Es wurden {1} XTF-Dateien aus der ZIP-Datei '{0}' extrahiert.</value>
+  </data>
+  <data name="FileReaderReadException" xml:space="preserve">
+    <value>Die Datei {0} konnte nicht gelesen werden. Details: {1}</value>
+    <comment>{0} File-Name; {1} Exception Message</comment>
+  </data>
+  <data name="FileReaderTooManyModelsFound" xml:space="preserve">
+    <value>Datei wurde ignoriert, da es mehr als ein Model beinhaltet. Datei: {0}</value>
+    <comment>{0} File-Name</comment>
+  </data>
+  <data name="FileReaderNotAXMLFile" xml:space="preserve">
+    <value>Datei wurde ignoriert, da es keine lesbare XML/XTF Struktur beinhaltet. Datei: {0}</value>
+    <comment>{0} File-Name</comment>
   </data>
 </root>

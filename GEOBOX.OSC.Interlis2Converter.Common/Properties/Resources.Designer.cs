@@ -19,7 +19,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -129,6 +129,33 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Properties {
         internal static string FileNotFoundExceptionMessage {
             get {
                 return ResourceManager.GetString("FileNotFoundExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datei wurde ignoriert, da es keine lesbare XML/XTF Struktur beinhaltet. Datei: {0}.
+        /// </summary>
+        internal static string FileReaderNotAXMLFile {
+            get {
+                return ResourceManager.GetString("FileReaderNotAXMLFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Die Datei {0} konnte nicht gelesen werden. Details: {1}.
+        /// </summary>
+        internal static string FileReaderReadException {
+            get {
+                return ResourceManager.GetString("FileReaderReadException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datei wurde ignoriert, da es mehr als ein Model beinhaltet. Datei: {0}.
+        /// </summary>
+        internal static string FileReaderTooManyModelsFound {
+            get {
+                return ResourceManager.GetString("FileReaderTooManyModelsFound", resourceCulture);
             }
         }
         
@@ -295,11 +322,20 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0}: DMAV Zusammenführen zu einer Datei (DMAV alles)..
+        ///   Looks up a localized string similar to {0}: DMAV Zusammenführen zu einer Datei (DMAVTYM_Alles)..
         /// </summary>
         internal static string MergeDMAVDisplayName {
             get {
                 return ResourceManager.GetString("MergeDMAVDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}: DMAV Zusammenführen zu einer Datei (DMAVTYM_Alles_ZH)..
+        /// </summary>
+        internal static string MergeDMAVZHDisplayName {
+            get {
+                return ResourceManager.GetString("MergeDMAVZHDisplayName", resourceCulture);
             }
         }
         

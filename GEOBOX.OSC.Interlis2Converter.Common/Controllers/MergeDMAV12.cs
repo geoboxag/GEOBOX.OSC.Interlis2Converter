@@ -6,16 +6,16 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
 {
-    public class MergeDMAV : IController
+    public class MergeDMAV12 : IController
     {
         // DEBUG:
-        // --type mergeDMAV --inputDir "C:\_daten\Interlis" --outputFile "C:\_daten\Interlis\DMAV_alles.xtf" --logFile "C:\_daten\Interlis\DMAV_alles.log"
+        // --type mergeDMAV12 --inputDir "C:\_daten\Interlis" --outputFile "C:\_daten\Interlis\DMAV_alles.xtf" --logFile "C:\_daten\Interlis\DMAV_alles.log"
 
         #region Propertys and Attributs
         /// <summary>
         /// Type is the key in available controller list
         /// </summary>
-        private const string TYPE = "mergeDMAV";
+        private const string TYPE = "mergeDMAV12";
         /// <summary>
         /// IController - Command Type name
         /// </summary>
@@ -41,7 +41,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
         /// Constructor for convert
         /// </summary>
         /// <param name="data">runtime data with all settings</param>
-        public MergeDMAV(RuntimeSettings data, ILogger logger)
+        public MergeDMAV12(RuntimeSettings data, ILogger logger)
         {
             runtimeSettings = data;
             Logger = logger;
@@ -85,8 +85,12 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
 
             return true;
         }
-        #endregion
+        
 
+        /// <summary>
+        /// Check if all command line options are valid for this command
+        /// </summary>
+        /// <returns></returns>
         public bool CheckCommandlineOptions()
         {
             if (string.IsNullOrEmpty(runtimeSettings.InputPath)|| string.IsNullOrEmpty(runtimeSettings.OutputFile)|| string.IsNullOrEmpty(runtimeSettings.OutputDir))
@@ -96,6 +100,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
             }
             return true;
         }
+        #endregion
 
         #region Create and Get Files for Read
         /// <summary>
@@ -117,7 +122,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
                 "DMAV_Rohrleitungen_V1_1",
                 "DMAV_Toleranzstufen_V1_1",
                 "DMAVSUP_UntereinheitGrundbuch_V1_1",
-                "FixpunkteLV_V1_0",
+                "FixpunkteLV_V2_0",
                 "KGKCGC_FPDS2_V1_1",
                 "HoheitsgrenzenLV_V1_0",
                 "OfficialIndexOfLocalities_V1_0"
@@ -134,7 +139,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
 
             var fileReader = new FileReader();
 
-            return fileReader.FindXtfFilesByModelinCorrectOrder(sourcePath, allowedModelNamesInCorrectOrder);
+            return fileReader.FindXtfFilesByModelinCorrectOrder(sourcePath, allowedModelNamesInCorrectOrder, Logger);
         }
 
         #endregion

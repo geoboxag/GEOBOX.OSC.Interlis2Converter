@@ -48,6 +48,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
         }
         #endregion
 
+        #region Execute
         public bool Execute()
         {
             // Check if output Dir exists
@@ -166,6 +167,7 @@ namespace GEOBOX.OSC.Interlis2Converter.Common.Controllers
             }
             return true;
         }
+        #endregion
 
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
